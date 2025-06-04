@@ -14,7 +14,7 @@ IT-taristu on iga kaasaegse ettevõtte selgroog, kuid selle ülalpidamine võib 
 
 Selles postituses võtame luubi alla tüüpilise VMware on-premise lahenduse kulustruktuuri ja võrdleme seda Pilvio.pro paindliku pilveteenusega. Kasutame realistlikku stsenaariumit ja sinu enda esitatud andmetel põhinevat arvutusloogikat, et näidata, kuidas pilvele üleminek võib tuua märkimisväärset rahalist säästu ja muid eeliseid.
 
-## On-Premise Reaalsus: Rohkem Kui Lihtsalt Serverid Kapis
+## On-Premise reaalsus: rohkem kui lihtsalt serverid kapis
 
 Traditsioonilise on-premise VMware lahenduse puhul koosnevad kulud mitmest komponendist, millest mõned on ilmselged, teised aga peidetud või raskemini cuantifitseeritavad. Analüüsime tüüpilist on-premise kulumudelit, mis põhineb järgmistel ühikhindadel (sarnaselt sinu esitatud mudelile, kuid kohandatud laiemale kontekstile):
 
@@ -36,7 +36,7 @@ Need numbrid võivad esmapilgul tunduda konkreetsed, kuid oluline on mõista, mi
 
 Fikseeritud baaskulu (745 €) on-premise mudelis on katse osa neist kuludest kokku võtta, kuid see ei pruugi katta kõiki tegelikke püsikulusid, eriti kui arvestada spetsialisti tööaega või ootamatuid riistvararikkeid.
 
-## Pilvio.pro Läbipaistev Hinnastus – Maksad Selle Eest, Mida Kasutad
+## Pilvio.pro läbipaistev hinnastus – maksad selle eest, mida kasutad
 
 Võrdleme seda Pilvio.pro pilveteenuse lihtsa ja arusaadava hinnastusega:
 
@@ -48,7 +48,7 @@ Võrdleme seda Pilvio.pro pilveteenuse lihtsa ja arusaadava hinnastusega:
 
 Pilvio puhul sisalduvad ülalnimetatud "varjatud kulud" – riistvara, selle hooldus, ruum, elekter, baasturvalisus, võrgutaristu – juba ühikuhindades. Sa ei pea muretsema serverite vananemise, ootamatute remondikulude ega eraldi personalikulu pärast taristu füüsiliseks haldamiseks.
 
-## Kulude Võrdlus: Eesti Keskmise Suurusega Ettevõtte Näide
+## Kulude võrdlus: Eesti keskmise suurusega ettevõtte näide
 
 Oletame, et Eesti keskmise suurusega ettevõte vajab oma rakenduste ja andmebaaside majutamiseks järgmisi ressursse (kasutame Linuxi-põhist näidet lihtsuse huvides):
 
@@ -76,7 +76,7 @@ See 1713 € on aga alles jäämäe veepealne osa. Lisame siia *konservatiivsed*
 
 **On-Premise *realistlikum* kogukulu:** 1713 € (baaskulu) + 252 € (riistvara) + 123 € (VMware) + 750 € (tööjõud) + 173 € (elekter) + 308 € (DR) = **Umbes 3319 € kuus.**
 
-**Nüüd arvutame Pilvio.pro Kuukulu (Linux):**
+**Nüüd arvutame Pilvio.pro kuukulu (Linux):**
 
 1.  **vCPU kulu:** 20 vCPU × 6 €/vCPU = 120 €
 2.  **RAM-i kulu:** 64 GB × 4 €/GB = 256 €
@@ -84,24 +84,24 @@ See 1713 € on aga alles jäämäe veepealne osa. Lisame siia *konservatiivsed*
 4.  **Varunduse kulu:** 1000 GB × 0.035 €/GB = 35 €
 5.  **Pilvio.pro kogukulu (kuus):** 120 + 256 + 75 + 35 = **486 € kuus**
 
-**Sääst Pilvio.pro Kasuks:**
+**Sääst Pilvio.pro kasuks:**
 
 * **Sääst kuus (võrreldes on-premise *realistliku* kuluga):** 3319 € - 486 € = **2833 €**
 * **Sääst aastas (hinnanguline):** 2833 € × 12 = **33996 €**
 
 See on märkimisväärne summa, mille Eesti keskmise suurusega ettevõte saaks investeerida oma põhitegevusse, innovatsiooni või teenuste arendamisse, selle asemel et seda kulutada keeruka ja kalli on-premise taristu ülalpidamiseks.
 
-## Miks Pilvio.pro On Enamat Kui Lihtsalt Kulude Kokkuhoid?
+## Miks Pilvio.pro on enam kui lihtsalt kulude kokkuhoid?
 
 Lisaks otsesele rahalisele säästule pakub Pilvio.pro mitmeid muid eeliseid:
 
-* **Skaleeritavus ja Paindlikkus:** Vajad rohkem ressursse? Paar klikki ja need on olemas. Hooajaline äri või projektipõhine töö? Maksa ainult siis, kui vajad. On-premise puhul tähendab skaleerimine sageli uut riistvara ostu ja pikka seadistusprotsessi.
-* **Fookus Põhitegevusele:** Lase Pilviol hoolitseda taristu eest, et sinu IT-meeskond saaks keskenduda äri väärtust loovatele tegevustele, mitte serverite hooldamisele ja tulekahjude kustutamisele.
-* **Uusim Tehnoloogia:** Pilvio tagab, et kasutad alati kaasaegset ja turvalist riist- ning tarkvara, ilma et peaksid ise muretsema uuendustsüklite pärast.
-* **Turvalisus ja Töökindlus:** Meie andmekeskused vastavad rangetele turvanõuetele. Pakume varundus- ja snapshot-lahendusi, et sinu andmed oleksid alati kaitstud.
-* **Ettearvatavad Kulud:** Selge ja läbipaistev hinnastus ilma ootamatute investeeringuteta riistvarasse või litsentsidesse.
+* **Skaleeritavus ja paindlikkus:** Vajad rohkem ressursse? Paar klikki ja need on olemas. Hooajaline äri või projektipõhine töö? Maksa ainult siis, kui vajad. On-premise puhul tähendab skaleerimine sageli uut riistvara ostu ja pikka seadistusprotsessi.
+* **Fookus põhitegevusele:** Lase Pilviol hoolitseda taristu eest, et sinu IT-meeskond saaks keskenduda äri väärtust loovatele tegevustele, mitte serverite hooldamisele ja tulekahjude kustutamisele.
+* **Uusim tehnoloogia:** Pilvio tagab, et kasutad alati kaasaegset ja turvalist riist- ning tarkvara, ilma et peaksid ise muretsema uuendustsüklite pärast.
+* **Turvalisus ja töökindlus:** Meie andmekeskused vastavad rangetele turvanõuetele. Pakume varundus- ja snapshot-lahendusi, et sinu andmed oleksid alati kaitstud.
+* **Ettearvatavad kulud:** Selge ja läbipaistev hinnastus ilma ootamatute investeeringuteta riistvarasse või litsentsidesse.
 
-## Kokkuvõte: Aeg Teha Tark Otsus
+## Kokkuvõte: aeg teha tark otsus
 
 Kuigi on-premise lahendustel on oma koht, näitab detailne kuluanalüüs selgelt, et paljude Eesti keskmise suurusega ettevõtete jaoks on Pilvio.pro pilveteenus oluliselt kuluefektiivsem ja paindlikum alternatiiv. Arvestades mitte ainult otseseid, vaid ka kaudseid ja varjatud kulusid, võib sääst ulatuda tuhandetesse eurodesse kuus.
 
