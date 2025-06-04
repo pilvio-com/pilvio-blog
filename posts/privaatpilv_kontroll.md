@@ -6,7 +6,6 @@ category: "Üldine"                  # Required: Post category
 tags: ["privaatpilv", "turvalisus"]          # Required: Array of tags
 featured: false                         # Required: Boolean (only one post should be true)
 excerpt: "Miks valida Pilvio kaasaegne privaatpilv?"         # Optional: Custom excerpt (auto-generated if not provided)
-readingTime: "8 min"                   # Optional: Reading time (auto-calculated if not provided)
 imageUrl: "/media/kontroll_taristule.png" # Optional: Featured image URL
 ---
 # Pilvio: Sinu privaatpilv uuesti mõtestatuna – kontroll ja vabadus sinu taristule
