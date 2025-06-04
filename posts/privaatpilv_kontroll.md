@@ -1,5 +1,5 @@
 ---
-title: "Sinu privaatpilv uuesti mõtestatuna"           # Required: Post title
+title: "Kontroll ja vabadus sinu taristule"           # Required: Post title
 author: "Kaur Kiisler"                   # Required: Author name
 publishedAt: "4. juuni 2025"        # Required: Estonian format date
 category: "Üldine"                  # Required: Post category
