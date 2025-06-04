@@ -1,3 +1,14 @@
+---
+title: "VMware on-premise lahenduse kuluarvutusloogika analüüs ja mudel"           # Required: Post title
+author: "Kaur Kiisler"                   # Required: Author name
+publishedAt: "4. juuni 2025"        # Required: Estonian format date
+category: "Üldine"                  # Required: Post category
+tags: ["pilvio.pro", "tco", "vmware"]          # Required: Array of tags
+featured: false                         # Required: Boolean (only one post should be true)
+excerpt: "Käesolev aruanne analüüsib kriitiliselt VMware kohapealsete (on-premise) lahenduste tüüpilisi kuluarvutusloogikaid."         # Optional: Custom excerpt (auto-generated if not provided)
+imageUrl: "/media/kontroll_taristule.png" # Optional: Featured image URL
+---
+
 # Long read: VMware on-premise lahenduse kuluarvutusloogika analüüs ja mudel 
 
 ## 1. Kokkuvõte
