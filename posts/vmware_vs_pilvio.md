@@ -3,7 +3,7 @@ title: "Analüüs: VMware On-Premise vs. Pilvio Pilveteenus"           # Require
 author: "Kaur Kiisler"                   # Required: Author name
 publishedAt: "4. juuni 2025"        # Required: Estonian format date
 category: "Üldine"                  # Required: Post category
-tags: ["pilvio.pro", "tco", "vmware]          # Required: Array of tags
+tags: ["pilvio.pro", "tco", "vmware"]          # Required: Array of tags
 featured: false                         # Required: Boolean (only one post should be true)
 excerpt: "Selles postituses võtame luubi alla tüüpilise VMware on-premise lahenduse kulustruktuuri ja võrdleme seda Pilvio.pro paindliku pilveteenusega."         # Optional: Custom excerpt (auto-generated if not provided)
 imageUrl: "/media/kontroll_taristule.png" # Optional: Featured image URL
