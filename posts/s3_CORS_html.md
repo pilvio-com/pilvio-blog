@@ -213,7 +213,7 @@ Loome XML-faili nimega `cors-rules.xml` järgmise sisuga:
 
 Kui käsklus õnnestub, on CORS-poliitika sinu *bucketile* rakendatud.
 
-> **Märkus:** Kui sa ei soovi `s3cmd` kasutada, uuri Pilvio dokumentatsioonist või portaalist, kas CORS-reegleid saab seadistada ka graafilise liidese kaudu. Paljud S3-teenusepakkujad seda võimaldavad.
+> **Märkus:** Kui sa ei soovi `s3cmd` kasutada, siis CORS-reegleid saab seadistada ka graafilise liidese kaudu. Selleks sobib näiteks Cyberduck nimeline tarkvara.
 
 ## Samm 4: lõplik testimine
 
