@@ -1,3 +1,14 @@
+---
+title: "Sinu privaatpilv uuesti mõtestatuna"           # Required: Post title
+author: "Kaur Kiisler"                   # Required: Author name
+publishedAt: "4. juuni 2025"        # Required: Estonian format date
+category: "Üldine"                  # Required: Post category
+tags: ["privaatpilv"]          # Required: Array of tags
+featured: false                         # Required: Boolean (only one post should be true)
+excerpt: "Miks valida Pilvio kaasaegne privaatpilv?"         # Optional: Custom excerpt (auto-generated if not provided)
+readingTime: "8 min"                   # Optional: Reading time (auto-calculated if not provided)
+imageUrl: "https://example.com/img.jpg" # Optional: Featured image URL
+---
 # Pilvio: Sinu privaatpilv uuesti mõtestatuna – kontroll ja vabadus sinu taristule
 
 Pilvemaailm on pidevas muutumises. Avalikud pilveplatvormid on pakkunud enneolematut skaleeritavust ja paindlikkust, kuid sageli kaasnevad nendega kompromissid kontrolli, kulude ja hankija-lukustuse osas. Samal ajal on traditsioonilised privaatpilve lahendused, eriti need, mis põhinevad näiteks VMware'i tehnoloogial, muutumas paljudele ettevõtetele üha kulukamaks ja jäigemaks, eriti pärast hiljutisi litsentsimudelite muutusi.
