@@ -241,7 +241,7 @@ s3cmd delcors s3://SINU_BUCKETI_NIMI_SIIA
 
 ## Kokkuvõte
 
-Selles juhendis õppisime, kuidas luua lihtne HTML-leht failide üleslaadimiseks otse Pilvio S3 *bucketi*, kasutades AWS SDK JavaScripti teeki. Saime teada, miks tekib CORS viga ja kuidas seadistada S3 *bucketile* CORS-poliitika, et lubada brauseripõhiseid päringuid.
+Selles juhendis õppisime, kuidas luua lihtne HTML-leht failide üleslaadimiseks otse Pilvio S3 *bucket'isse*, kasutades AWS SDK JavaScripti teeki. Saime teada, miks tekib CORS viga ja kuidas seadistada S3 *bucket'ile* CORS-poliitika, et lubada brauseripõhiseid päringuid.
 
 Kuigi see näide on lihtne, annab see hea aluse keerukamate *front-end* rakenduste integreerimiseks Pilvio S3 objektisalvestusega. Pea meeles alati järgida turvalisuse parimaid praktikaid, eriti mis puudutab ligipääsuvõtmete haldamist ja CORS-reeglite piiramist tootmiskeskkonnas.
 
