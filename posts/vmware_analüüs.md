@@ -34,7 +34,7 @@ Tüüpilised turunduskalkulaatorid, mida kasutatakse VMware kohapealsete lahendu
 
 Levinud väljajätmised hõlmavad:
 
-* **Põhjalik riistvara**: Võrguseadmed (lülitid, tulemüürid, ruuterid, mis ületavad baasvajadusi), spetsiaalsed salvestusmassiivid (SAN/NAS), robustsed katkematu toite allikad (UPS), füüsilise turvalisuse infrastruktuur.
+* **Põhjalik riistvara**: Võrguseadmed (switchid, tulemüürid, ruuterid, mis ületavad baasvajadusi), spetsiaalsed salvestusmassiivid (SAN/NAS), robustsed katkematu toite allikad (UPS), füüsilise turvalisuse infrastruktuur.
 * **Tarkvara täielik elutsükkel**: Mitmeaastased tellimuskulud, serveri operatsioonisüsteemide kliendipääsulitsentsid (CAL), oluliste lisandmoodulite (nt täiustatud varundus, avariitaaste lahendused, kui need pole sobivalt komplekteeritud) kulud, andmebaaside litsentsid.
 * **Tegevuskulud**: Andmekeskuse ruum (rent/kolokatsioon), energiatarve (sageli oluliselt alahinnatud, PUE faktorit ignoreeritakse), jahutus, täismahus IT-administratsiooni palgad ja ajakulu, riistvara hoolduslepingud, tarkvara tugiteenuste uuendamine pärast esialgseid perioode, varundusmeediumid/väljaspool asukohta varundamine, avariitaaste testimine, interneti ribalaius ja personali koolitus.
 
@@ -74,14 +74,14 @@ Kapitalikulud hõlmavad esialgseid investeeringuid riistvarasse, tarkvarasse ja 
    
     *\*Märkus: Hinnad on illustratiivsed. Kasutatav maht sõltub RAID tasemest. Allikad: ``.* Jagatud salvestusruum on VMware funktsioonide, nagu vMotion ja HA, jaoks kriitilise tähtsusega. See tabel aitab eelarvestada seda sageli märkimisväärset kulu.
 
-* **Võrguseadmed (Lülitid, Ruuterid, Tulemüürid VKE serveriruumi jaoks)**: Lülitid, ruuterid ja tulemüürid võivad maksta $5000 kuni $50 000 sõltuvalt jõudlusest/turvalisusest. Serveripõhiselt võib võrguseadmete (lüliti, ruuter, tulemüür) kulu olla $250-$500 serveri kohta. VKE ruuter: $80-$350 või $150-$500. Hallatav lüliti: $250-$450 või $50-$500+. Riistvaraline tulemüür: $400-$2300 või $200-$1000+. Täiustatud tulemüürid võivad maksta $5000–$20 000 seadme kohta.
+* **Võrguseadmed (Switchid, Ruuterid, Tulemüürid VKE serveriruumi jaoks)**: Switchid, ruuterid ja tulemüürid võivad maksta $5000 kuni $50 000 sõltuvalt jõudlusest/turvalisusest. Serveripõhiselt võib võrguseadmete (switch, ruuter, tulemüür) kulu olla $250-$500 serveri kohta. VKE ruuter: $80-$350 või $150-$500. Hallatav switch: $250-$450 või $50-$500+. Riistvaraline tulemüür: $400-$2300 või $200-$1000+. Täiustatud tulemüürid võivad maksta $5000–$20 000 seadme kohta.
 
     **Tabel 3: Tüüpilised Kulud VKE Võrguinfrastruktuuri Komponentidele**
 
     | Komponent                   | Spetsifikatsiooni Märkused (nt PoE, Läbilaskevõime) | Hinnanguline Hinnavahemik (€) |
     | :-------------------------- | :------------------------------------------------- | :-------------------------- |
-    | Hallatav GbE Lüliti (24-porti) | L2/L3 funktsioonid, VLAN tugi                      | 250 - 700                   |
-    | Hallatav GbE PoE+ Lüliti (24-porti) | Sama, mis eelmine + PoE+                           | 400 - 1000                  |
+    | Hallatav GbE Switch (24-porti) | L2/L3 funktsioonid, VLAN tugi                      | 250 - 700                   |
+    | Hallatav GbE PoE+ Switch (24-porti) | Sama, mis eelmine + PoE+                           | 400 - 1000                  |
     | VKE Tulemüüri Seade         | 500 Mbps - 1 Gbps läbilaskevõime, VPN tugi         | 300 - 1500                  |
     | VKE Ruuter                  | Gigabit WAN/LAN, VPN                               | 100 - 400                   |
    
@@ -190,7 +190,7 @@ Hüpoteetiline VKE töökoormus:
 * **vCPU kokku**: 32-64
 * **RAM kokku**: 256-512 GB
 * **Salvestusruum**: 10-20 TB kiire (SSD-põhine) jagatud salvestusruum (SAN/NAS)
-* **Võrk**: Baasvõrgundus (hallatavad lülitid, tulemüür)
+* **Võrk**: Baasvõrgundus (hallatavad switchid, tulemüür)
 * **Varundus**: Igapäevane varundus, 30-päevane säilitamine
 * **Avariitaaste (DR)**: Baasvõimekus (nt VMware Live Site Recovery või samaväärne)
 * **TCO periood**: 3 aastat
@@ -261,7 +261,7 @@ Järgnev tabelilaadne struktuur kirjeldab mudeli loogikat, tuues välja peamised
 | **A. KAPITALIKULUD (AMORDITUD AASTASEKS)** |                                |                |                        |                  | Amortisatsiooniperiood: 3-5 aastat                                                                                        |
 | Serverid (kokku)                              | tk                             | 3              | 4500                   | 4500             | Nt 3 serverit á €4500, amordituna 3a peale = (€4500*3)/3 = €4500/aastas. Vt Tabel 1.                                       |
 | Jagatud Salvestusruum (SAN/NAS)               | seade                          | 1              | 8000                   | 2667             | Nt €8000 seade, amordituna 3a peale. Vt Tabel 2.                                                                        |
-| Võrguseadmed (lülitid, tulemüür)              | komplekt                       | 1              | 1500                   | 500              | Nt €1500 komplekt, amordituna 3a peale. Vt Tabel 3.                                                                     |
+| Võrguseadmed (switchid, tulemüür)              | komplekt                       | 1              | 1500                   | 500              | Nt €1500 komplekt, amordituna 3a peale. Vt Tabel 3.                                                                     |
 | Katkematu Toite Allikas (UPS)                 | tk                             | 1              | 1000                   | 333              | Nt €1000 UPS, amordituna 3a peale. Arvesta ka akuvahetustega elutsükli jooksul (eraldi OpEx reana või siin amortiseerituna). |
 | Füüsiline Turvalisus (algne)                  | komplekt                       | 1              | 1200                   | 400              | Nt ukselukk, 1-2 kaamerat, amordituna 3a peale.                                                                           |
 | VMware vSphere Litsentsid                     | tuum                           | 48             | 46 (Standard, aastane) | 2208             | Nt 3 hosti, 2 CPU/host, 8 tuuma/CPU = 48 tuuma. vSphere Standard @ ~$46/tuum/aasta (3a leping). Vt Tabel 4.                 |
