@@ -6,7 +6,6 @@ category: "Terraform"                  # Required: Post category
 tags: ["terraform", "devops"]          # Required: Array of tags
 excerpt: "Selle juhendi lõpuks on sul täielikult toimiv Nextcloudi instants, mis töötab sinu enda Pilvio pilves."
 featured: true                         # Required: Boolean (only one post should be true)
-readingTime: "8 min"                   # Optional: Reading time (auto-calculated if not provided)
 imageUrl: "https://example.com/img.jpg" # Optional: Featured image URL
 ---
 # Kuidas paigaldada Nextcloud Pilvio pilve Terraformi, Docker Compose'i ja S3-ga
