@@ -4,7 +4,7 @@ author: "Kaur Kiisler"                   # Required: Author name
 publishedAt: "4. juuni 2025"        # Required: Estonian format date
 category: "Terraform"                  # Required: Post category
 tags: ["terraform", "devops"]          # Required: Array of tags
-excerpt: "Selle juhendi lõpuks on sul täielikult toimiv Nextcloudi instants, mis töötab sinu enda Pilvio pilves. See kasutab skaleeritavat S3 objektisalvestust failide hoidmiseks, tagades andmete turvalisuse ja kättesaadavuse."
+excerpt: "Selle juhendi lõpuks on sul täielikult toimiv Nextcloudi instants, mis töötab sinu enda Pilvio pilves."
 featured: true                         # Required: Boolean (only one post should be true)
 readingTime: "8 min"                   # Optional: Reading time (auto-calculated if not provided)
 imageUrl: "https://example.com/img.jpg" # Optional: Featured image URL
