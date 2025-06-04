@@ -1,10 +1,10 @@
 ---
-title: "Terraformi Pilvio näitel: seame üles Nginx-i"           # Required: Post title
+title: "Terraform Pilvio näitel: seame üles Nginx-i"           # Required: Post title
 author: "Kaur Kiisler"                   # Required: Author name
 publishedAt: "4. juuni 2025"        # Required: Estonian format date
 category: "Terraform"                  # Required: Post category
 tags: ["terraform", "devops"]          # Required: Array of tags
-featured: true                         # Required: Boolean (only one post should be true)
+featured: false                         # Required: Boolean (only one post should be true)
 excerpt: "Brief description..."         # Optional: Custom excerpt (auto-generated if not provided)
 readingTime: "8 min"                   # Optional: Reading time (auto-calculated if not provided)
 imageUrl: "https://example.com/img.jpg" # Optional: Featured image URL
