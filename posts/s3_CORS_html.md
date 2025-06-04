@@ -1,3 +1,14 @@
+---
+title: "Juhend: failide HTML vormilt Pilvio S3 *bucket'isse* JavaScriptiga üleslaadimine"           # Required: Post title
+author: "Dmitry Yakubov"                   # Required: Author name
+publishedAt: "15. november 2024"        # Required: Estonian format date
+category: "Õpetused"                  # Required: Post category
+tags: ["S3", "CORS"]          # Required: Array of tags
+featured: false                         # Required: Boolean (only one post should be true)
+excerpt: "Selles juhendis õpime, kuidas luua lihtne HTML-leht koos vormiga, mis võimaldab kasutajal valida faili oma arvutist ja laadida see otse Pilvio S3 *bucket'isse*."         # Optional: Custom excerpt (auto-generated if not provided)
+imageUrl: "https://example.com/img.jpg" # Optional: Featured image URL
+---
+
 # Juhend: failide HTML vormilt Pilvio S3 *bucket'isse* JavaScriptiga üleslaadimine
 
 ## Sissejuhatus
