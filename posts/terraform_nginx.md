@@ -6,7 +6,7 @@ category: "Terraform"                  # Required: Post category
 tags: ["terraform", "devops"]          # Required: Array of tags
 excerpt: "Selles juhendis näitame, kuidas Terraformi abil Pilvio platvormil püsti panna lihtne Nginx veebiserver."
 featured: false                         # Required: Boolean (only one post should be true)
-imageUrl: "https://example.com/img.jpg" # Optional: Featured image URL
+imageUrl: "/media/tf_nginx.png" # Optional: Featured image URL
 ---
 # Juhend: Õpime tundma Terraformi Pilvio näitel ja seame üles Nginx veebiserveri
 
