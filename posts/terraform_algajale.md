@@ -6,7 +6,7 @@ category: "Terraform"                  # Required: Post category
 tags: ["terraform", "devops"]          # Required: Array of tags
 featured: false                         # Required: Boolean (only one post should be true)
 excerpt: "Selles juhendis keskendume Terraformi põhimõtetele, eelistele ja peamistele käskudele."         # Optional: Custom excerpt (auto-generated if not provided)
-imageUrl: "https://example.com/img.jpg" # Optional: Featured image URL
+imageUrl: "/media/tf_algajale.png" # Optional: Featured image URL
 ---
 # Terraformi põhitõed: sissejuhatus algajale
 
