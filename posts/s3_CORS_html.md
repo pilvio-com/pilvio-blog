@@ -1,6 +1,6 @@
 ---
 title: "Juhend: failide HTML vormilt Pilvio S3 *bucket'isse* JavaScriptiga üleslaadimine"           # Required: Post title
-author: "Dmitry Yakubov"                   # Required: Author name
+author: "Kaur Kiisler"                   # Required: Author name
 publishedAt: "15. november 2024"        # Required: Estonian format date
 category: "Õpetused"                  # Required: Post category
 tags: ["S3", "CORS"]          # Required: Array of tags
