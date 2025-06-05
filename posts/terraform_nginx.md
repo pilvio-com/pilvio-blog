@@ -2,7 +2,7 @@
 title: "Terraform Pilvio näitel: seame üles Nginx-i"           # Required: Post title
 author: "Kaur Kiisler"                   # Required: Author name
 publishedAt: "4. juuni 2025"        # Required: Estonian format date
-category: "Terraform"                  # Required: Post category
+category: "Õpetused"                  # Required: Post category
 tags: ["terraform", "devops"]          # Required: Array of tags
 excerpt: "Selles juhendis näitame, kuidas Terraformi abil Pilvio platvormil püsti panna lihtne Nginx veebiserver."
 featured: false                         # Required: Boolean (only one post should be true)
