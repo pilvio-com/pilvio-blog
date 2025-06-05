@@ -2,7 +2,7 @@
 title: "Terraformi põhitõed: sissejuhatus algajale"           # Required: Post title
 author: "Kaur Kiisler"                   # Required: Author name
 publishedAt: "4. juuni 2025"        # Required: Estonian format date
-category: "Terraform"                  # Required: Post category
+category: "Õpetused"                  # Required: Post category
 tags: ["terraform", "devops"]          # Required: Array of tags
 featured: false                         # Required: Boolean (only one post should be true)
 excerpt: "Selles juhendis keskendume Terraformi põhimõtetele, eelistele ja peamistele käskudele."         # Optional: Custom excerpt (auto-generated if not provided)
