@@ -6,7 +6,7 @@ category: "Üldine"                  # Required: Post category
 tags: ["pilvio.pro", "tco", "vmware"]          # Required: Array of tags
 featured: false                         # Required: Boolean (only one post should be true)
 excerpt: "Selles postituses võtame luubi alla tüüpilise VMware on-premise lahenduse kulustruktuuri ja võrdleme seda Pilvio.pro paindliku pilveteenusega."         # Optional: Custom excerpt (auto-generated if not provided)
-imageUrl: "/media/kontroll_taristule.png" # Optional: Featured image URL
+imageUrl: "/media/vmware_vs_pilvio.png" # Optional: Featured image URL
 ---
 # Kas sinu ettevõtte IT-taristu kulud on kontrolli all? Analüüs: VMware On-Premise vs. Pilvio Pilveteenus
 
