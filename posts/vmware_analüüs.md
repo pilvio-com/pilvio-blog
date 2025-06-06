@@ -1,6 +1,6 @@
 ---
 title: "Long read: VMware on-premise lahenduse kuluarvutusloogika analüüs ja mudel"           # Required: Post title
-author: "Kaur Kiisler"                   # Required: Author name
+author: "Kaur Kiisler + Gemini DeepResearch"                   # Required: Author name
 publishedAt: "4. juuni 2025"        # Required: Estonian format date
 category: "Üldine"                  # Required: Post category
 tags: ["pilvio.pro", "tco", "vmware"]          # Required: Array of tags
