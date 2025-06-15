@@ -1,5 +1,5 @@
 ---
-title: "Õpetus: Minikube Kubernetes klastri Terraformi abil Pilviosse paigaldamine"           # Required: Post title
+title: "Õpetus: Pilviosse Terraformi abil Minikube Kubernetes klastri paigaldamine"           # Required: Post title
 author: "Kaur Kiisler"                   # Required: Author name
 publishedAt: "16. juuni 2025"        # Required: Estonian format date
 category: "Õpetused"                  # Required: Post category
@@ -9,7 +9,7 @@ excerpt: "Selles juhendis kasutad sa Terraformi, et automaatselt ette valmistada
 imageUrl: "https://example.com/img.jpg" # Optional: Featured image URL
 slug: "minikube-terraform"                    # Optional: Custom URL slug (auto-generated from title if not provided)
 ---
-### Õpetus: Minikube Kubernetes klastri Terraformi abil Pilviosse paigaldamine
+### Õpetus: Pilviosse Terraformi abil Minikube Kubernetes klastri paigaldamine
 
 Minikube on lihtsaim viis Kubernetesega kohalikult katsetamiseks. Pilvio pilves saad sa seda töökindluse, võrgu- ja salvestusvõimaluste paindlikkuse suurendamiseks käivitada reaalses virtuaalmasinas. Selles juhendis kasutad sa Terraformi, et automaatselt ette valmistada turvaline ja ajakohane Ubuntu server, paigaldada Docker, Docker Compose, `kubectl` ja Minikube ning soovi korral määrata avalik ujuv IP-aadress ja S3-*bucket* oma varade või varukoopiate jaoks.
 
