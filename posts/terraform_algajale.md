@@ -177,7 +177,8 @@ Parim viis Terraformi õppimiseks on praktiline proovimine.
 
 1.  **Paigalda Terraform CLI:** Järgi juhiseid [Terraformi ametlikul veebilehel](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli).
 2.  **Hangi ligipääs pilveplatvormile:** Loo endale konto mõnel Terraformi toetatud platvormil (nt Pilvio, AWS, Azure, GCP) ja hangi vajalikud API võtmed või autentimisandmed.
-3.  **Järgi praktilist juhendit:** Hea esimene samm on proovida läbi mõni lihtne "Hello World" tüüpi juhend. Näiteks meie eelmine artikkel, "[Juhend: Õpime tundma Terraformi Pilvio näitel ja seame üles Nginx veebiserveri](LINK_EELMISELE_ARTIKLILE_SIIA)", on suurepärane alguspunkt, et näha Terraformi töös Pilvio platvormil. (Kui see artikkel on avaldatud, asenda see link tegeliku URL-iga).
+3.  **Järgi praktilist juhendit:** Hea esimene samm on proovida läbi mõni lihtne "Hello World" tüüpi juhend. Näiteks meie eelmine artikkel, "[
+Terraform Pilvio näitel: seame üles Nginx-i](https://blog.pilvio.com/blog/terraform-pilvio-nitel-seame-les-nginx-i)", on suurepärane alguspunkt, et näha Terraformi töös Pilvio platvormil.
 
 ## Kokkuvõte
 
