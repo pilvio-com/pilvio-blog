@@ -6,7 +6,7 @@ category: "Õpetused"                  # Required: Post category
 tags: ["kubernetes", "devops", "terraform"]          # Required: Array of tags
 featured: false                         # Required: Boolean (only one post should be true)
 excerpt: "Selles juhendis kasutad sa Terraformi, et automaatselt ette valmistada turvaline ja ajakohane Ubuntu server, paigaldada Docker, Docker Compose, `kubectl` ja Minikube."         # Optional: Custom excerpt (auto-generated if not provided)
-imageUrl: "https://example.com/img.jpg" # Optional: Featured image URL
+imageUrl: "/media/tf_minicube.png" # Optional: Featured image URL
 slug: "minikube-terraform"                    # Optional: Custom URL slug (auto-generated from title if not provided)
 ---
 ### Õpetus: Pilviosse Terraformi abil Minikube Kubernetes klastri paigaldamine
