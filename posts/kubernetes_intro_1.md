@@ -93,21 +93,11 @@ spec:
 
 - `kind: Pod`: "Joonise tüüp on 'Korter' (Pod)."
 
-- ```
-  metadata
-  ```
-
-  : "Korteri andmed."
-
+- `metadata`: "Korteri andmed."
   - `name: minu-esimene-pod`: "Anname korterile nime (uksesildi)."
   - `labels: app: veebiserver`: "Värvime korteri ukse punaseks (silt `app: veebiserver`). See on ülioluline, sest hiljem saame öelda: 'leia kõik punase uksega korterid'."
 
-- ```
-  spec
-  ```
-
-  : "Korteri detailne siseplaan."
-
+- `spec`: "Korteri detailne siseplaan."
   - `containers:`: "Siin on nimekiri elanikest (konteineritest), kes siin korteris elavad."
   - `- name: nginx-konteiner`: "Elaniku nimi on 'nginx-konteiner'."
   - `image: nginx`: "See elanik on loodud 'nginx' tõmmise (DNA) põhjal."
@@ -226,12 +216,7 @@ spec:
 
 - `selector: app: veebiserver`: "Postitöötaja reegel: vii kirjad edasi ainult neile korteritele, mille uksel on silt `app: veebiserver`." See ühendab postkontori õigete korteritega.
 
-- ```
-  ports
-  ```
-
-  : "Kuidas kirju vastu võetakse ja edastatakse."
-
+- `ports`: "Kuidas kirju vastu võetakse ja edastatakse."
   - `port: 80`: "Kirja vastuvõtmise postkasti number fuajees on 80."
   - `targetPort: 80`: "Korteri ukse küljes oleva postipilu number, kuhu kiri tuleb panna, on samuti 80."
 
