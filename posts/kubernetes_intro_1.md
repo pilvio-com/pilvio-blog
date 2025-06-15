@@ -6,7 +6,7 @@ category: "Õpetused"                  # Required: Post category
 tags: ["kubernetes", "devops"]          # Required: Array of tags
 excerpt: "Selles postituses juhendame sind läbi Kubernetes'e põhikontseptsioonide, alustades sinu esimese rakenduse paigaldamisest kuni selle kättesaadavaks tegemiseni klastri sees.
 "         # Optional: Custom excerpt (auto-generated if not provided)
-imageUrl: "/media/kubernetes_intro_1" # Optional: Featured image URL
+imageUrl: "/media/kubernetes_intro_1.png" # Optional: Featured image URL
 slug: "sissejuhatus-kubernetesesse-1"                    # Optional: Custom URL slug (auto-generated from title if not provided)
 ---
 ### Sissejuhatus Kubernetesesse: Sinu esimene rakendus
