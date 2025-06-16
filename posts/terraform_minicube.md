@@ -63,22 +63,100 @@ Muuda kõik olulised seaded parameetriteks (API-võtmed, VM-i spetsifikatsioonid
 Terraform
 
 ```
-variable "apikey"           { description = "Pilvio API võti"; type = string; sensitive = true }
-variable "host"             { description = "Pilvio API lõpp-punkt"; type = string; default = "api.pilvio.com" }
-variable "location"         { description = "Pilvio asukoht (tll01, jhvi, jhv02)"; type = string; default = "tll01" }
-variable "billing_account_id" { description = "Arvelduskonto ID"; type = number }
-variable "vpc_name"         { description = "VPC nimi"; type = string; default = "k8s-vpc" }
-variable "vm_name"          { description = "VM-i nimi"; type = string; default = "minikube-host" }
-variable "vm_username"      { description = "Admin kasutajanimi"; type = string; default = "admin" }
-variable "vm_password"      { description = "Admin parool"; type = string; sensitive = true }
-variable "vm_public_key"    { description = "SSH avalik võti"; type = string; default = "" }
-variable "vm_os_name"       { description = "OS-i nimi"; type = string; default = "ubuntu" }
-variable "vm_os_version"    { description = "OS-i versioon"; type = string; default = "22.04" }
-variable "vm_vcpu"          { description = "vCPU-d"; type = number; default = 2 }
-variable "vm_memory"        { description = "RAM (MB)"; type = number; default = 4096 }
-variable "vm_disk"          { description = "Ketas (GB)"; type = number; default = 40 }
-variable "enable_floating_ip" { description = "Määra avalik IP"; type = bool; default = true }
-variable "bucket_name"      { description = "S3-bucketi nimi"; type = string; default = "" }
+variable "apikey" {
+  description = "Pilvio API key"
+  type        = string
+  sensitive   = true
+}
+
+variable "host" {
+  description = "Pilvio API endpoint"
+  type        = string
+  default     = "api.pilvio.com"
+}
+
+variable "location" {
+  description = "Pilvio resource location (tll01, jhvi, jhv02)"
+  type        = string
+  default     = "tll01"
+}
+
+variable "billing_account_id" {
+  description = "Billing account ID to assign resources"
+  type        = number
+}
+
+variable "vpc_name" {
+  description = "Name of the VPC"
+  type        = string
+  default     = "k8s-vpc"
+}
+
+variable "vm_name" {
+  description = "Name of the Kubernetes VM"
+  type        = string
+  default     = "minikube-host"
+}
+
+variable "vm_username" {
+  description = "Admin username for the VM"
+  type        = string
+  default     = "ubuntu"
+}
+
+variable "vm_password" {
+  description = "Admin password for the VM"
+  type        = string
+  sensitive   = true
+}
+
+variable "vm_public_key" {
+  description = "Optional SSH public key for the VM"
+  type        = string
+  default     = ""
+}
+
+variable "vm_os_name" {
+  description = "VM OS (use 'ubuntu')"
+  type        = string
+  default     = "ubuntu"
+}
+
+variable "vm_os_version" {
+  description = "VM OS version (use '22.04' for Ubuntu LTS)"
+  type        = string
+  default     = "22.04"
+}
+
+variable "vm_vcpu" {
+  description = "Number of vCPUs for the VM"
+  type        = number
+  default     = 2
+}
+
+variable "vm_memory" {
+  description = "RAM for the VM in MB"
+  type        = number
+  default     = 4096
+}
+
+variable "vm_disk" {
+  description = "Primary disk size in GB"
+  type        = number
+  default     = 40
+}
+
+variable "enable_floating_ip" {
+  description = "Whether to allocate and assign a public floating IP"
+  type        = bool
+  default     = true
+}
+
+variable "bucket_name" {
+  description = "Name for S3-compatible bucket (leave empty to skip creation)"
+  type        = string
+  default     = ""
+}
 ```
 
 #### 1.3. `main.tf`
