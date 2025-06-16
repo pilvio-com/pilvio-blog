@@ -176,7 +176,7 @@ resource "pilvio_vm" "minikube_host" {
   os_name      = var.vm_os_name
   os_version   = var.vm_os_version
   memory       = var.vm_memory
-  vcpu         = var.vcpu
+  vcpu         = var.vm_vcpu
   username     = var.vm_username
   password     = var.vm_password
   disks        = var.vm_disk
