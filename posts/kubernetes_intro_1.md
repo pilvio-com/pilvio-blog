@@ -1,4 +1,3 @@
-```
 ---
 title: "Praktiline sissejuhatus Kubernetesesse: sinu esimene rakendus (1. osa)"
 author: "Pilvio Admin Team"
@@ -9,7 +8,6 @@ excerpt: "Alusta oma teekonda Kubernetesega! See on meie artiklisarja esimene os
 imageUrl: "/media/kubernetes_intro_1.png"
 slug: "praktiline-sissejuhatus-kubernetesesse-1"
 ---
-```
 
 ### Tere tulemast Kubernetes'e maailma!
 
