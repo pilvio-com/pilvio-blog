@@ -1,7 +1,3 @@
-Hästi, siin on sinu artikli täiustatud ja rikastatud versioon, mis arvestab kõiki su soove.
-
----
-
 ```
 ---
 title: "Praktiline sissejuhatus Kubernetesesse: sinu esimene rakendus (1. osa)"
