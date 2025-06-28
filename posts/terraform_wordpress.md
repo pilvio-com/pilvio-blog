@@ -1,5 +1,5 @@
 ---
-title: "WordPress-i paigaldamine Pilviosse Docker Compose'iga, kasutades Terraformi"           # Required: Post title
+title: "WordPress'i paigaldamine Pilviosse Docker Compose'iga, kasutades Terraformi"           # Required: Post title
 author: "Kaur Kiisler"                   # Required: Author name
 publishedAt: "28. juuni 2025"        # Required: Estonian format date
 category: "Õpetused"                  # Required: Post category
