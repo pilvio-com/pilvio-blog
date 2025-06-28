@@ -1,5 +1,5 @@
 ---
-title: "ordPress-i paigaldamine Pilviosse Docker Compose'iga, kasutades Terraformi"           # Required: Post title
+title: "WordPress-i paigaldamine Pilviosse Docker Compose'iga, kasutades Terraformi"           # Required: Post title
 author: "Kaur Kiisler"                   # Required: Author name
 publishedAt: "28. juuni 2025"        # Required: Estonian format date
 category: "Õpetused"                  # Required: Post category
@@ -49,8 +49,6 @@ Loo oma projekti jaoks uus kaust (nt `wordpress-pilvio`) ja loo sinna sisse jär
 
 See fail määrab ära Terraformi enda ja vajalike *providerite* versioonid. See tagab, et konfiguratsioon töötab ka tulevikus ootuspäraselt.
 
-Terraform
-
 ```
 terraform {
   required_version = ">= 1.3.0"
@@ -77,8 +75,6 @@ provider "pilvio" {
 #### `variables.tf`
 
 See fail deklareerib kõik muutujad, mida meie projektis kasutatakse. Muutujate kasutamine teeb konfiguratsiooni paindlikuks ja korduvkasutatavaks. Tegelikud väärtused anname ette eraldi `terraform.tfvars` failis.
-
-Terraform
 
 ```
 variable "apikey" {
@@ -173,8 +169,6 @@ variable "db_name" {
 #### `main.tf`
 
 See on meie infrastruktuuri peamine kirjeldusfail. Siin defineerime kõik ressursid, mida soovime luua: virtuaalvõrgu, virtuaalmasina, S3-ühilduva bucketi ja seome floating-IP serveriga.
-
-Terraform
 
 ```
 resource "pilvio_vpc" "main" {
@@ -338,8 +332,6 @@ Nüüd, kus kõik mallid ja konfiguratsioonid on paigas, peame andma Terraformil
 
 Kopeeri allolev sisu faili `terraform.tfvars` ja asenda väärtused enda omadega.
 
-Terraform
-
 ```
 # Asenda väärtused enda omadega
 # Pilvio seaded
@@ -369,7 +361,6 @@ db_name     = "wordpress"
 - `db_user`, `db_password`, `db_name`: Võid jätta need vaikimisi väärtustele või muuta, kui soovid. `db_password` peaks kindlasti olema tugev ja unikaalne.
 
 ### Samm 4 — Infrastruktuuri paigaldamine
-
 
 
 Nüüd on kõik valmis! Ava terminal, navigeeri oma projekti kausta ja käivita järgmised Terraformi käsud.
