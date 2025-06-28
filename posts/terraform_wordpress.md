@@ -1,3 +1,13 @@
+---
+title: "ordPress-i paigaldamine Pilviosse Docker Compose'iga, kasutades Terraformi"           # Required: Post title
+author: "Kaur Kiisler"                   # Required: Author name
+publishedAt: "28. juuni 2025"        # Required: Estonian format date
+category: "Õpetused"                  # Required: Post category
+tags: ["terraform", "devops", "wordpress"]          # Required: Array of tags
+featured: false                         # Required: Boolean (only one post should be true)
+excerpt: "Selles juhendis kasutame Terraformi, et täielikult automatiseerida produktsioonivalmis WordPressi lehe paigaldus Pilvio virtuaalmasinasse."         # Optional: Custom excerpt (auto-generated if not provided)
+imageUrl: "/media/tf_wordpress.png" # Optional: Featured image URL
+---
 ### WordPress-i paigaldamine Pilviosse Docker Compose'iga, kasutades Terraformi
 
 #### Sissejuhatus
