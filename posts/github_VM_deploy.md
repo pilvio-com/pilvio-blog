@@ -1,4 +1,13 @@
-
+---
+title: "Kuidas ma oma rakenduse deploy'imise põrgust välja tõin – praktiline juhend"           # Required: Post title
+author: "Kaur Kiisler"                   # Required: Author name
+publishedAt: "29. juuni 2025"        # Required: Estonian format date
+category: "Õpetused"                  # Required: Post category
+tags: ["devops", "github"]          # Required: Array of tags
+featured: false                         # Required: Boolean (only one post should be true)
+excerpt: "See on lugu sellest, kuidas ma seadistasin täisautomaatse CI/CD toru GitHub Actionsi, Dockeri ja ühe virtuaalmasina (VM) abil."         # Optional: Custom excerpt (auto-generated if not provided)
+imageUrl: "/media/github_vm.jpg" # Optional: Featured image URL
+---
 # Kuidas ma oma rakenduse deploy'imise põrgust välja tõin – praktiline juhend
 
 Postituse kuupäev: 29. juuni 2025
