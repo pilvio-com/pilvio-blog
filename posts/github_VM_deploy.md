@@ -10,10 +10,6 @@ imageUrl: "/media/github_vm.jpg" # Optional: Featured image URL
 ---
 # Kuidas ma oma rakenduse deploy'imise põrgust välja tõin – praktiline juhend
 
-Postituse kuupäev: 29. juuni 2025
-
-Autor: Kogenud Arendaja
-
 Tere tulemast lugema meie DevOps-seeria Uut artiklit! Täna ei räägi me teooriast. Räägime praktikast, vigadest ja sellest magusast tundest, kui pärast mitmeid ebaõnnestumisi hakkab lõpuks kõik tööle. See on lugu sellest, kuidas ma seadistasin täisautomaatse CI/CD toru GitHub Actionsi, Dockeri ja ühe virtuaalmasina (VM) abil. Mis veelgi olulisem, see on juhend, kuidas **sina** saad sama asja teha, vältides kõiki neid karisid, mille otsa mina komistasin.
 
 See juhend on sinu jaoks, kui oled kunagi mõelnud:
