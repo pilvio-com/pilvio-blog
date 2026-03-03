@@ -25,7 +25,7 @@ jobs:
       - name: Checkout blog app repo (for sync script)
         uses: actions/checkout@v4
         with:
-          repository: pilvio-com/pilvio-cloud-scribe-blog
+          repository: kkiisler/pilvio-cloud-scribe-blog
           path: blog-app
           token: ${{ secrets.GH_PAT }}
 
