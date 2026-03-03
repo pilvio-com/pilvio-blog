@@ -249,4 +249,4 @@ See ei ole kõik. Aga kui need asjad on paigas, on su agent parem kui 90% selles
 
 ------
 
-*See artikkel on osa sarjast, kus jagan oma kogemusi AI agentide ehitamisest.* *Jälgi mind [LinkedIn'is](https://linkedin.com/in/kaurk).*
+*See artikkel on osa sarjast, kus jagan oma kogemusi AI agentide ehitamisest.* *Jälgi mind [LinkedIn'is](https://www.linkedin.com/in/kaurkiisler/).*
