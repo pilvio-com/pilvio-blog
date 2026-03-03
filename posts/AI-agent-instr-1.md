@@ -1,3 +1,13 @@
+---
+title: "Kuidas ehitada AI agenti, mis päriselt tootmises töötab"
+author: "Kaur Kiisler"
+category: "AI"
+tags: ["AI", "õpetus"]
+excerpt: "Enamik "kuidas ehitada AI agenti" guide'e keskendub koodistruktuurile ja raamistikele. Need on olulised, aga mitte kõige raskemad probleemid. Kõige raskemad probleemid on: mida agent üldse tegema peaks? Mis juhtub, kui ta eksib? Kuidas testida süsteemi, mis annab iga kord erineva vastuse?"
+imageUrl: "/media/ai-agent1.png"
+slug: "kuidas-ehitada-AI-agenti"
+---
+
 # Kuidas ehitada AI agenti, mis päriselt tootmises töötab
 
 ------
