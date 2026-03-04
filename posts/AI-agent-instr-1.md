@@ -16,7 +16,7 @@ Viimase aasta jooksul olen ehitanud mitu AI agenti — võlahaldusest klienditee
 
 Demo tegemine võtab paar tundi. Agent, mis töötab 24/7 ilma et sa öösiti ärkama peaks — see nõuab arhitektuuri.
 
-Enamik "kuidas ehitada AI agenti" guide'e keskendub koodistruktuurile ja raamistikele. Need on olulised, aga mitte kõige raskemad probleemid. Kõige raskemad probleemid on: mida agent üldse tegema peaks? Mis juhtub, kui ta eksib? Kuidas testida süsteemi, mis annab iga kord erineva vastuse?
+Enamik "kuidas ehitada AI agenti" guide'isid keskendub koodistruktuurile ja raamistikele. Need on olulised, aga mitte kõige raskemad probleemid. Kõige raskemad probleemid on: mida agent üldse tegema peaks? Mis juhtub, kui ta eksib? Kuidas testida süsteemi, mis annab iga kord erineva vastuse?
 
 Selles artiklis käin läbi 9 teemat, mis minu kogemuse põhjal eraldavad mänguasja päris süsteemist.
 
@@ -90,15 +90,15 @@ Lihtne "sisend → LLM → väljund" ahel töötab demoks. Tootmises vajab agent
 
 ## 4. Mälu: lühiajaline vs pikaajaline
 
-**Kübara-probleem:** kasutaja ütleb teisipäeval agendile "ma elan Tartus." Neljapäeval küsib "soovita mulle õhtusöögikohta." Kui agent ei mäleta, kus kasutaja elab, on ta kasutu.
+**Tüüpiline probleem:** kasutaja ütleb teisipäeval agendile "ma elan Tartus." Neljapäeval küsib "soovita mulle õhtusöögikohta." Kui agent ei mäleta, kus kasutaja elab, on ta kasutu.
 
 **Kaks mälu tüüpi, kaks erinevat probleemi:**
 
 **Lühiajaline mälu** = vestlusajalugu ühes sessioonis. Probleem: kontekstiaken on piiratud. 500 sõnumit ei mahu. Lahendus: trim strategy — hoia süsteemi prompt + N viimast sõnumit, mis token limiidi sisse mahuvad.
 
-**Pikaajaline mälu** = faktid kasutaja kohta kõigi sessioonide üleselt. Salvestatakse vektorandmebaasi, otsitakse semantilise sarnasuse järgi. Kui kasutaja ütleb "ma elan Tartus", salvestad selle fakti. Kui ta hiljem küsib õhtusöögikoha kohta, otsid tema kohta relevantseid fakte ja leiad "elab Tartus."
+**Pikaajaline mälu** = faktid kasutaja kohta kõigi sessioonide üleselt. Salvestatakse vektorandmebaasi, otsitakse semantilise sarnasuse järgi. Kui kasutaja ütleb "ma elan Tartus", salvestad selle fakti. Kui ta hiljem küsib õhtusöögikoha kohta, otsid tema kohta olulisi fakte ja leiad "elab Tartus."
 
-**Praktiline soovitus:** alusta ilma pikaajalise mäluta. Tõsine. See lisab keerukust ja kulu (vektorindeksi haldus, embedding'ute genereerimine). Lisa see alles siis, kui su kasutajad päriselt vajavad sessiooniülest mälu. Enamik agente saab ilma hakkama.
+**Praktiline soovitus:** alusta ilma pikaajalise mäluta. See lisab keerukust ja kulu (vektorindeksi haldus, embedding'ute genereerimine). Lisa see alles siis, kui su kasutajad päriselt vajavad sessiooniülest mälu. Enamik agente saab ilma hakkama.
 
 ------
 
@@ -118,7 +118,7 @@ Asjad lähevad katki. OpenAI on maas. API annab rate limit'i. Andmebaas on ülek
 
 Kui Anthropic on maas, lülitub süsteem automaatselt OpenAI peale. Kasutaja ei märka midagi.
 
-**c) Graceful degradation.** See on kõige olulisem ja kõige vähem räägitud. Kui KÕIK ebaõnnestub, mis juhtub kasutaja jaoks? Kas ta näeb 500 Error'it? Või näeb ta sõnumit "Ma ei saa praegu vastata, aga su päring on salvestatud ja vastan niipea kui võimalik"? Teine variant on parem.
+**c) Graceful degradation.** See on kõige olulisem ja kõige vähem räägitud. Kui KÕIK ebaõnnestub, mis siis juhtub kasutaja jaoks? Kas ta näeb 500 Error'it? Või näeb ta sõnumit "Ma ei saa praegu vastata, aga su päring on salvestatud ja vastan niipea kui võimalik"? Teine variant on parem.
 
 **Connection pooling** andmebaasi jaoks: hoia uhenduste hulk valmis, taaskasuta neid. pool_pre_ping=True (kontrolli uhenduse elusolekut), pool_recycle=1800 (taasloo uhendused iga 30 min). Need seaded on igavad, aga nende puudumine tekitab ootamatuid 500-vigu tipptundidel.
 
