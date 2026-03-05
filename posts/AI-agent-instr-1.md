@@ -3,7 +3,7 @@ title: "Kuidas ehitada AI agenti, mis päriselt tootmises töötab"
 author: "Kaur Kiisler"
 category: "AI"
 tags: ["AI", "õpetus"]
-excerpt: "Enamik 'kuidas ehitada AI agenti' guide'e keskendub koodistruktuurile ja raamistikele. Need on olulised, aga mitte kõige raskemad probleemid. Kõige raskemad probleemid on: mida agent üldse tegema peaks? Mis juhtub, kui ta eksib? Kuidas testida süsteemi, mis annab iga kord erineva vastuse?"
+excerpt: "Enamik 'kuidas ehitada AI agenti' juhendeid keskendub koodistruktuurile ja raamistikele. Need on olulised, aga mitte kõige raskemad probleemid. Kõige raskemad probleemid on: mida agent üldse tegema peaks? Mis juhtub, kui ta eksib? Kuidas testida süsteemi, mis annab iga kord erineva vastuse?"
 imageUrl: "/media/ai-agent1.png"
 slug: "kuidas-ehitada-AI-agenti"
 ---
@@ -16,7 +16,7 @@ Viimase aasta jooksul olen ehitanud mitu AI agenti — võlahaldusest klienditee
 
 Demo tegemine võtab paar tundi. Agent, mis töötab 24/7 ilma et sa öösiti ärkama peaks — see nõuab arhitektuuri.
 
-Enamik "kuidas ehitada AI agenti" guide'isid keskendub koodistruktuurile ja raamistikele. Need on olulised, aga mitte kõige raskemad probleemid. Kõige raskemad probleemid on: mida agent üldse tegema peaks? Mis juhtub, kui ta eksib? Kuidas testida süsteemi, mis annab iga kord erineva vastuse?
+Enamik "kuidas ehitada AI agenti" juhendeid keskendub koodistruktuurile ja raamistikele. Need on olulised, aga mitte kõige raskemad probleemid. Kõige raskemad probleemid on: mida agent üldse tegema peaks? Mis juhtub, kui ta eksib? Kuidas testida süsteemi, mis annab iga kord erineva vastuse?
 
 Selles artiklis käin läbi 9 teemat, mis minu kogemuse põhjal eraldavad mänguasja päris süsteemist.
 
@@ -198,7 +198,7 @@ AI agent on pidev kulu. Iga LLM kutse maksab. Iga embedding maksab. Ja kulu kasv
 
 ## 9. Observability: mida mõõta ja miks
 
-Kui sa ei mõõda, lennud pimedas. Aga mõõta õigeid asju.
+Kui sa ei mõõda, lendad pimedas. Aga mõõda õigeid asju.
 
 **Kaks tasandit:**
 
