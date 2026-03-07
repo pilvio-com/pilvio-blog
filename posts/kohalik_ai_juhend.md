@@ -4,7 +4,7 @@ author: "Kaur Kiisler"
 publishedAt: "7. märts 2026"
 category: "AI"
 tags: ["AI", "kohalik AI", "Ollama", "Qwen", "Mac Studio"]
-featured: false
+featured: true
 excerpt: "Praktiline juhend, kuidas käivitada kohalik AI oma arvutis Ollama ja Qwen mudelitega, millist riistvara valida ning millal liikuda lokaalselt setup'ilt API-põhise lahenduse peale."
 imageUrl: "/media/kohalik-ai.png"
 slug: "kuidas-kaivitada-ai-mudel-oma-arvutis"
