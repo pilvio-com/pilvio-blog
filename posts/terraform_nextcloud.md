@@ -5,7 +5,7 @@ publishedAt: "4. juuni 2025"        # Required: Estonian format date
 category: "Õpetused"                  # Required: Post category
 tags: ["terraform", "devops"]          # Required: Array of tags
 excerpt: "Selle juhendi lõpuks on sul täielikult toimiv Nextcloudi instants, mis töötab sinu enda Pilvio pilves."
-featured: true                         # Required: Boolean (only one post should be true)
+featured: false                         # Required: Boolean (only one post should be true)
 imageUrl: "/media/tf_nextcloud.png" # Optional: Featured image URL
 ---
 # Kuidas paigaldada Nextcloud Pilvio pilve Terraformi, Docker Compose'i ja S3-ga
