@@ -120,7 +120,7 @@ Kui Anthropic on maas, lülitub süsteem automaatselt OpenAI peale. Kasutaja ei 
 
 **c) Graceful degradation.** See on kõige olulisem ja kõige vähem räägitud. Kui KÕIK ebaõnnestub, mis siis juhtub kasutaja jaoks? Kas ta näeb 500 Error'it? Või näeb ta sõnumit "Ma ei saa praegu vastata, aga su päring on salvestatud ja vastan niipea kui võimalik"? Teine variant on parem.
 
-**Connection pooling** andmebaasi jaoks: hoia uhenduste hulk valmis, taaskasuta neid. pool_pre_ping=True (kontrolli uhenduse elusolekut), pool_recycle=1800 (taasloo uhendused iga 30 min). Need seaded on igavad, aga nende puudumine tekitab ootamatuid 500-vigu tipptundidel.
+**Connection pooling** andmebaasi jaoks: hoia ühenduste hulk valmis, taaskasuta neid. pool_pre_ping=True (kontrolli uhenduse elusolekut), pool_recycle=1800 (taasloo uhendused iga 30 min). Need seaded on igavad, aga nende puudumine tekitab tipptundidel ootamatuid 500-vigu.
 
 ------
 
@@ -136,11 +136,11 @@ Standard-turvalisus (autentimine, rate limiting, sisendi sanitiseerimine) kehtib
 
 **b) Tool abuse.** Kui agendil on ligipääs andmebaasile, peab ta saama teha ainult lubatud operatsioone. Loo igale tööriistale selged piirangud. "Otsing" tööriist ei tohi saada DELETE päringuid teha.
 
-**c) Väljundi guardrails.** Valideeri, mida agent kasutajale tagastab. Kui agent peaks tegema arveldust ja ta äkki pakub tasuta teenust — see on bug, mida peab kinni püdma.
+**c) Väljundi guardrails.** Valideeri, mida agent kasutajale tagastab. Kui agent peaks tegema arveldust ja ta äkki pakub tasuta teenust — see on bug, mis on vaja kinni püüda.
 
 **d) Secrets management.** AI-genereeritud kood paneb tihti API võtmeid otse koodi sisse. .env failid, vault'id, .gitignore — see on baashügieen, mis on AI-ajastul eriti oluline.
 
-**e) Audit trail.** Logi kõik agendi otsused. Kes küsis mida, mida agent otsustas, kas inimene kinnitas. Reguleeritud sektorites (pangandus, tervishoid) on see kohustuslik. Aga ka ärianaluuüsiks on see hindamatu — sa näed, kuidas agent päriselt käitub.
+**e) Audit trail.** Logi kõik agendi otsused. Kes küsis mida, mida agent otsustas, kas inimene kinnitas. Reguleeritud sektorites (pangandus, tervishoid) on see kohustuslik. Aga ka ärianalüüsiks on see hindamatu — sa näed, kuidas agent päriselt käitub.
 
 ------
 
@@ -240,7 +240,7 @@ Kui sa ei mõõda, lendad pimedas. Aga mõõda õigeid asju.
 
 **Enne tootmisse minekut:**
 
-- Konstraindi-testid
+- Piirangute testid
 - Koormustestid
 - Monitooring ja alertid
 - Graceful degradation stsenaarium läbi mängitud
