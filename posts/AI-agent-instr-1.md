@@ -124,7 +124,7 @@ Kui Anthropic on maas, lülitub süsteem automaatselt OpenAI peale. Kasutaja ei 
 
 ------
 
-## 6. Turvalisus: agendi-spetsiifiline
+## 6. Agendi-spetsiifiline turvalisus
 
 Standard-turvalisus (autentimine, rate limiting, sisendi sanitiseerimine) kehtib nagu iga veebirakenduse puhul. Aga AI agentidel on *lisa*-turvariskid, mida tavaline rakendus ei näe:
 
@@ -154,7 +154,7 @@ AI agent: sama sisend võib anda erineva väljundi iga kord. Sa ei saa kirjutada
 
 **Kolm testimise lähenemist:**
 
-**a) Konstraindi-testid.** Ära testi täpset väljundit, testi piiranguid.
+**a) Piirangute testid.** Ära testi täpset väljundit, testi piiranguid.
 
 - "Vastus peab sisaldama kliendi nime"
 - "Vastus ei tohi sisaldada teise kliendi andmeid"
@@ -165,7 +165,7 @@ AI agent: sama sisend võib anda erineva väljundi iga kord. Sa ei saa kirjutada
 
 **c) Regression suite ehk "kuldstandardid."** Kogu aja jooksul näiteid: "Selle sisendi puhul oli väljund hea." Salvesta need. Käita iga deploy eel läbi. Kui uus versioon annab oluliselt halvema tulemuse, on see regressioon.
 
-**Praktiline soovitus:** alusta konstraindi-testidega. Need on odavad ja püüavad kinni kõige tõsisemad probleemid. LLM-as-a-judge lisa hiljem, kui agent on järjel ja tahad kvaliteeti peenhhäälestada.
+**Praktiline soovitus:** alusta piirangute testidega. Need on odavad ja püüavad kinni kõige tõsisemad probleemid. LLM-as-a-judge lisa hiljem, kui agent on järjel ja tahad kvaliteeti peenhhäälestada.
 
 ------
 
@@ -227,7 +227,7 @@ Kui sa ei mõõda, lendad pimedas. Aga mõõda õigeid asju.
 
 **Enne ehitamist:**
 
-- Defineeri agent skoop (autonoomne / human-in-the-loop / ainult analüüs)
+- Defineeri agendi skoop (autonoomne / human-in-the-loop / ainult analüüs)
 - Joonista töövoog, märgi mis vajab AI-d ja mis mitte
 - Modelleeri kulu
 
@@ -242,10 +242,10 @@ Kui sa ei mõõda, lendad pimedas. Aga mõõda õigeid asju.
 
 - Konstraindi-testid
 - Koormustestid
-- Monitoring ja alertid
+- Monitooring ja alertid
 - Graceful degradation stsenaarium läbi mängitud
 
-See ei ole kõik. Aga kui need asjad on paigas, on su agent parem kui 90% sellest, mida ma täna tootmises näen.
+See ei ole kõik. Aga kui need asjad on paigas, siis 90% on tehtud.
 
 ------
 
