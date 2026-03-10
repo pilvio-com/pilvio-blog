@@ -19,12 +19,23 @@ Me kasutame AWS SDK JavaScripti teeki, kuna Pilvio S3 on S3-ühilduv teenus ja s
 
 Selle juhendi lõpuks on sul toimiv näidisleht, mis demonstreerib failide üleslaadimist ja kuvab *bucketis* olevaid objekte.
 
+> ⚠️ **Oluline turvahoiatus**
+>
+> Selles artiklis näidatud `index.html` näide sobib ainult lokaalseks katsetamiseks ja arenduseks.
+> **Ära kunagi pane päris S3 `Access Key ID` ega `Secret Access Key` väärtusi brauseris käivitatavasse JavaScripti ega avalikku `index.html` faili.**
+>
+> Kui veebileht on kasutajatele kättesaadav, saavad need võtmed sattuda igaühe brauserisse ja neid saab kuritarvitada.
+>
+> **Tootmiskeskkonnas kasuta selle asemel kas:**
+> - backendi kaudu loodud **pre-signed URL-e**, või
+> - ajutisi ja rangelt piiratud õigustega mandaate.
+
 ## Eeldused
 
 Enne alustamist veendu, et sul on olemas järgmised asjad:
 
 - **Pilvio konto ja S3 \*bucket\*:** Sul peab olema aktiivne Pilvio konto ja loodud S3 *bucket*, kuhu faile laadida. Kui sul veel *bucketit* pole, saad selle luua Pilvio iseteenindusportaali kaudu.
-- **Pilvio S3 ligipääsuvõtmed:** Sul on vaja oma Pilvio S3 *Access Key ID* ja *Secret Access Key*. Need leiad Pilvio portaalist oma S3 kasutaja või *bucketi* seadetest. **Hoia neid võtmeid turvaliselt!**
+- **Pilvio S3 ligipääsuvõtmed:** Sul on vaja oma Pilvio S3 *Access Key ID* ja *Secret Access Key*. Neid võib kasutada selles artiklis toodud näite puhul ainult lokaalses testkeskkonnas. **Ära kasuta siin pikaealisi tootmisvõtmeid ega avalda neid brauserisse jõudvas koodis.** Tootmislahendustes kasuta pigem backendi kaudu loodud pre-signed URL-e või muid ajutisi mandaate.
 - **Tekstiredaktor:** Koodi kirjutamiseks (nt VS Code, Sublime Text, Notepad++).
 - **Veebibrauser:** Koodi testimiseks (nt Chrome, Firefox).
 - **(Valikuline, aga soovitatav CORS seadistamiseks) `s3cmd` tööriist:** See on käsurea tööriist S3-ühilduvate salvestusruumidega suhtlemiseks. Juhised selle paigaldamiseks ja seadistamiseks leiad [s3cmd ametlikult veebilehelt](https://s3tools.org/s3cmd). Alternatiivina võid CORS-reegleid seadistada ka teiste S3-ühilduvate tööriistadega või Pilvio portaali kaudu, kui see võimalus on olemas.
@@ -32,6 +43,8 @@ Enne alustamist veendu, et sul on olemas järgmised asjad:
 ## Samm 1: HTML lehe ja JavaScripti koodi loomine
 
 Alustame lihtsa HTML-faili (`index.html`) loomisega, mis sisaldab failivaliku välja, üleslaadimise nuppu ja kohta tulemuste kuvamiseks. Kogu loogika kirjutame samasse faili `<script>` tagide vahele.
+
+Enne jätkamist veel kord: järgmine näide näitab brauseripõhist otseüleslaadimist kõige lihtsamas vormis. See on kasulik CORS-i ja S3 päringute mõistmiseks, kuid **ei ole soovitatav tootmiskasutuse muster**, sest brauserisse jõudev JavaScript ei sobi püsivate ligipääsuvõtmete hoidmiseks.
 
 Loo fail nimega `index.html` ja lisa sinna järgmine sisu:
 
@@ -51,8 +64,9 @@ Loo fail nimega `index.html` ja lisa sinna järgmine sisu:
     <div id="results" style="margin-top: 20px; padding: 10px; border: 1px solid #eee;"></div>
 
 <script type="text/javascript">
-    // --- SINU PILVIO S3 ANDMED ---
-    // ⚠️ ASENDA NEED OMA TEGELIKE VÄÄRTUSTEGA!
+    // --- DEMO SEADISTUS AINULT LOKAALSEKS TESTIMISEKS ---
+    // ⚠️ ÄRA kasuta siin tootmisvõtmeid.
+    // ⚠️ ÄRA deploy' seda faili avalikule veebilehele koos päris võtmetega.
     const PILVIO_S3_ENDPOINT_URL = "https://s3.pilw.io"; // Pilvio S3 endpoint
     const PILVIO_ACCESS_KEY_ID = "SINU_ACCESS_KEY_ID_SIIA";
     const PILVIO_SECRET_ACCESS_KEY = "SINU_SECRET_ACCESS_KEY_SIIA";
@@ -110,6 +124,7 @@ Loo fail nimega `index.html` ja lisa sinna järgmine sisu:
     }, false);
 
     // Funktsioon bucket'is olevate objektide loetlemiseks
+    // Demo jaoks kasulik, kuid tootmises ei tasu brauserile anda rohkem õigusi kui vaja.
     function listBucketObjects() {
         const params = {
             Bucket: PILVIO_BUCKET_NAME,
@@ -140,12 +155,13 @@ Loo fail nimega `index.html` ja lisa sinna järgmine sisu:
 
 **Olulised koodis tähelepanu vajavad asjad:**
 
-- **Sinu Pilvio S3 andmed:** JavaScripti koodi alguses on konstandid (`PILVIO_S3_ENDPOINT_URL`, `PILVIO_ACCESS_KEY_ID` jne). **Asenda kindlasti "SINU_..." väärtused oma tegelike Pilvio S3 andmetega!**
+- **Ligipääsuvõtmed brauseris:** Selles näites on võtmed pandud JavaScripti sisse ainult selleks, et demonstreerida Pilvio S3 ja CORS-i tööpõhimõtet lokaalses testkeskkonnas. **Tootmiskeskkonnas ei tohi päris `Access Key ID` ja `Secret Access Key` väärtusi kunagi brauserisse saata ega `index.html` faili kirjutada.** Õige lahendus on kasutada backendi kaudu loodud pre-signed URL-e või muid ajutisi piiratud õigustega mandaate.
 - **AWS SDK versioon:** Kasutasin uuemat AWS SDK versiooni (`2.1371.0`). Kontrolli alati [AWS SDK for JavaScript dokumentatsioonist](https://aws.amazon.com/sdk-for-javascript/) uusimat stabiilset versiooni ja kasuta seda.
 - `s3ForcePathStyle: true`: See on oluline parameeter paljude S3-ühilduvate teenuste (sh Pilvio) puhul, et URL-id korrektselt moodustataks.
 - `signatureVersion: 'v4'`: Kasutame allkirjastamise versiooni v4, mis on kaasaegne ja turvaline.
-- `ACL: 'public-read'`: See parameeter `putObject` meetodis muudab üleslaetud faili avalikult internetis ligipääsetavaks. See on testimiseks mugav, kuid **tootmiskeskkonnas tuleks hoolikalt kaaluda turvalisemaid variante**, näiteks privaatseid objekte ja allkirjastatud URL-e (pre-signed URLs) failidele ligipääsuks.
+- `ACL: 'public-read'`: See muudab üleslaetud faili avalikult internetis ligipääsetavaks. See võib olla demo jaoks mugav, kuid enamasti ei ole see tootmises sobiv vaikimisi valik. Turvalisem lähenemine on laadida failid üles privaatselt ja anda neile ligipääs vajaduse korral allkirjastatud URL-ide kaudu.
 - `listObjectsV2`: Kasutame `listObjectsV2` meetodit objektide loetlemiseks, mis on uuem ja eelistatum versioon võrreldes `listObjects`-iga.
+- `listObjectsV2` õigused: üleslaadimise demo jaoks ei ole brauserist objektide loetlemine tegelikult vajalik. Tootmislahenduses tasub järgida minimaalse õiguse põhimõtet ja jätta brauserile ainult need õigused, mida ta päriselt vajab.
 
 ## Samm 2: esmane testimine brauseris (ja CORS viga)
 
@@ -166,6 +182,12 @@ Veebibrauserid rakendavad turvamehhanismi nimega "Same-Origin Policy" (sama pär
 ## Samm 3: CORS poliitika seadistamine Pilvio S3 *bucketile*
 
 Et lubada sinu veebilehel faile Pilvio S3 *bucketi* üles laadida, peame *bucketile* seadistama CORS-poliitika. See poliitika ütleb S3-le, et sinu veebilehe päritolu on usaldusväärne ja päringud on lubatud.
+
+### Enne CORS-i seadistamist: oluline vahe CORS-i ja autentimise vahel
+
+CORS ei ole turvamehhanism, mis kaitseb sinu S3 võtmeid. CORS määrab ainult selle, millistelt veebilehtedelt brauser päringuid teha lubab. Kui paned päris ligipääsuvõtmed brauserisse, siis CORS ei takista nende sattumist kasutaja kätte.
+
+Seetõttu tuleb CORS-i käsitleda eraldi teemana ja **mitte kasutada seda põhjendusena, miks võiks võtmeid frontendis hoida**.
 
 Loome XML-faili nimega `cors-rules.xml` järgmise sisuga:
 
@@ -188,10 +210,11 @@ Loome XML-faili nimega `cors-rules.xml` järgmise sisuga:
 
 **TÄHTIS HOIATUS TURVALISUSE KOHTA:**
 
-- Ülaltoodud `<AllowedOrigin>*</AllowedOrigin>` ja `<AllowedHeader>*</AllowedHeader>` konfiguratsioon on **väga leebe ja ebaturvaline tootmiskeskkonna jaoks**. See lubab päringuid igalt domeenilt ja igasuguste päistega.
-- **Tootmiskeskkonnas pead `AllowedOrigin` väärtuse kindlasti piirama ainult nende domeenidega, kust sa tegelikult soovid üleslaadimist lubada** (nt `https://sinu-veebileht.com`).
-- Samuti tuleks `AllowedHeader` piirata ainult nende päistega, mida sinu rakendus tegelikult vajab.
-- Antud näide on mõeldud testimise lihtsustamiseks.
+- Ülaltoodud CORS näide on mõeldud ainult testimiseks ja õppimiseks.
+- `<AllowedOrigin>*</AllowedOrigin>` ning `<AllowedHeader>*</AllowedHeader>` on tootmiskeskkonnas liiga leebed.
+- **Veel olulisem:** isegi rangem CORS-poliitika ei tee brauserisse kirjutatud püsivaid S3 võtmeid turvaliseks.
+- Tootmises piira `AllowedOrigin` ainult oma tegelike domeenidega.
+- Võimalusel väldi üldse püsivate võtmete kasutamist frontendis ja eelista pre-signed URL-e või backendi vahendatud üleslaadimist.
 
 **CORS-reeglite rakendamine `s3cmd` tööriistaga:**
 
@@ -230,6 +253,8 @@ Kui kõik on õigesti seadistatud, peaks fail nüüd edukalt sinu Pilvio S3 *buc
 - Veendu, et sinu Pilvio S3 ligipääsuvõtmed ja *bucketi* nimi on JavaScripti koodis õiged.
 - Kontrolli, et CORS-reeglid on *bucketile* korrektselt rakendatud. Võid proovida `s3cmd getcors s3://SINU_BUCKETI_NIMI_SIIA`, et näha hetkel kehtivat poliitikat.
 - Kui kasutasid `AllowedOrigin` reeglis konkreetset domeeni (mitte `*`), veendu, et testid lehte täpselt sellelt domeenilt (sh protokoll http/https). Kui avad `index.html` otse failisüsteemist (`file:///`), siis `*` on ainus `AllowedOrigin`, mis tavaliselt töötab, aga see on ebaturvaline. Parem on testimiseks kasutada lihtsat lokaalset veebiserverit (nt Pythoni `http.server` või VS Code Live Server laiendus).
+- Kui testid seda näidet ainult lokaalselt, kasuta võimalusel eraldi testimiseks loodud piiratud õigustega võtmeid, mitte oma peamisi tootmisvõtmeid.
+- Kui plaanid lahendust päriselt kasutusele võtta, ära liigu edasi brauserisse kirjutatud püsivate võtmetega. Ehita üleslaadimine ümber pre-signed URL-ide või backendi vahendatud päringute peale.
 
 **CORS konfiguratsiooni eemaldamine (vajadusel):**
 
@@ -241,9 +266,9 @@ s3cmd delcors s3://SINU_BUCKETI_NIMI_SIIA
 
 ## Kokkuvõte
 
-Selles juhendis õppisime, kuidas luua lihtne HTML-leht failide üleslaadimiseks otse Pilvio S3 *bucket'isse*, kasutades AWS SDK JavaScripti teeki. Saime teada, miks tekib CORS viga ja kuidas seadistada S3 *bucket'ile* CORS-poliitika, et lubada brauseripõhiseid päringuid.
+Selles juhendis õppisime, kuidas brauseripõhine failide üleslaadimine Pilvio S3 *bucket'isse* tehniliselt töötab ja miks CORS-poliitika on selle jaoks vajalik. Näide sobib hästi S3 päringute, CORS-i ja üleslaadimisloogika katsetamiseks lokaalses arenduskeskkonnas.
 
-Kuigi see näide on lihtne, annab see hea aluse keerukamate *front-end* rakenduste integreerimiseks Pilvio S3 objektisalvestusega. Pea meeles alati järgida turvalisuse parimaid praktikaid, eriti mis puudutab ligipääsuvõtmete haldamist ja CORS-reeglite piiramist tootmiskeskkonnas.
+Oluline on aga meeles pidada, et **päris ligipääsuvõtmeid ei tohi avalikku frontend-koodi panna**. Tootmiskeskkonnas tuleks failide üleslaadimiseks kasutada turvalisemat mustrit, näiteks backendi kaudu loodud pre-signed URL-e või muud serveripoolset vahendust. Samuti peaks CORS-poliitika olema piiratud ainult vajalike domeenide, meetodite ja päistega.
 
 Pilvio S3 pakub paindlikku ja skaleeritavat lahendust sinu andmete hoidmiseks. Kombineerides seda *front-end* tehnoloogiatega, saad luua võimsaid ja interaktiivseid veebirakendusi.
 
