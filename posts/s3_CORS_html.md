@@ -275,7 +275,7 @@ Pilvio S3 pakub paindlikku ja skaleeritavat lahendust sinu andmete hoidmiseks. K
 ## Kasulikud lingid
 
 - [Pilvio avaleht](https://pilvio.com/)
-- [AWS SDK for JavaScript V2 Dokumentatsioon](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/getting-started.html) (Kuigi V3 on uuem, on V2 endiselt laialt kasutusel ja sarnaneb sinu viidatud artikli näitega)
+- [AWS SDK for JavaScript V2 Dokumentatsioon](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/getting-started.html)
 - [s3cmd ametlik veebileht](https://s3tools.org/s3cmd)
 - [MDN Web Docs: Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
 
