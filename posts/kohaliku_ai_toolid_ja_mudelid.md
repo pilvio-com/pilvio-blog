@@ -1,5 +1,5 @@
 ---
-title: "Millise kohaliku AI tööriista ja mudeliga alustada?"
+title: "Millise kohaliku AI tööriista ja mudeliga alustada Maci peal?"
 author: "Kaur Kiisler"
 publishedAt: "7. märts 2026"
 category: "AI"
@@ -14,6 +14,8 @@ Kui esimene küsimus on "kas kohalik AI üldse töötab?", siis järgmine küsim
 
 Valikuid on rohkem kui ainult `Ollama + Qwen`. See kombinatsioon on endiselt väga tugev, aga mitte igale inimesele ja mitte igaks tööks. Kui kasutad Maci, eriti Apple Siliconit või Mac Studiot, siis pilt muutub veel huvitavamaks.
 
+Oluline raam: see võrdlus on teadlikult Maci ja Apple Siliconi vaates. Kui oled Windowsi või Linuxi peal, jäävad mudelisoovitused suures plaanis sarnaseks, aga tööriistade pingerida muutub: `MLX` langeb välja ning `Ollama`, `LM Studio` ja `Jan` sõltuvad rohkem sinu GPU-st, draiveritest ja töövoost.
+
 Selles postituses võrdleme kahte asja:
 
 1. milline lokaalne tööriist on Maci kasutaja jaoks kõige mõistlikum
@@ -25,6 +27,8 @@ Kui tahad ainult lühikest vastust, siis soovitame alustada nii:
 - mittetehnilisele Maci kasutajale: `LM Studio + Qwen3` või `LM Studio + Gemma 3`
 - Apple power user'ile: `MLX + Qwen3` või `MLX + Gemma 3`
 - reasoning'u, matemaatika ja raskema loogika jaoks: `DeepSeek-R1-Distill`
+
+Veel üks praktiline hoiatus: tööriist ja mudel ei ela täiesti eraldi. Mõni mudel jõuab kiiremini `GGUF`-i, mõni `MLX`-i, mõni mõlemasse. Enne lõplikku valikut kontrolli alati, et sinu soovitud mudel oleks olemas formaadis, mida sinu runtime päriselt oskab jooksutada.
 
 ---
 
@@ -115,8 +119,20 @@ Tööriist üksi ei tee veel head kogemust. Sama oluline on mudelipere. Praegu t
 
 - `Qwen3`
 - `Gemma 3`
-- `Mistral` / `Ministral 3`
-- `DeepSeek-R1` ja selle distilled variandid
+- `Mistral 3` / `Ministral 3`
+- `DeepSeek-R1-Distill`
+
+### Enne mudelinime vaata mälu
+
+Enne kui valid mudelipere, küsi kõigepealt: kui palju sul on päriselt kasutada `RAM`-i, `VRAM`-i või Apple Siliconi puhul `unified memory`t?
+
+- `8-16 GB`: alusta pigem `1.5B-4B` klassist
+- `24-36 GB`: `7B-14B` on enamasti kõige praktilisem magus koht
+- `48-96 GB`: `27B-35B` ning suuremad distilled reasoning-mudelid muutuvad realistlikuks
+
+Pikem kontekstiaken, multimodaalsus ja thinking/reasoning-režiim tõstavad mälunõuet kiiresti. Seega ei maksa valida mudelit ainult benchmark'i või mudelinime järgi.
+
+See ei ole ka täielik turuülevaade. Näiteks `Llama` perekond on endiselt täiesti kasutatav, aga starter-soovituse vaates annavad `Qwen3`, `Gemma 3`, `Mistral 3 / Ministral 3` ja `DeepSeek-R1-Distill` praegu selgema rollijaotuse.
 
 ### Kiire võrdlus
 
@@ -124,8 +140,8 @@ Tööriist üksi ei tee veel head kogemust. Sama oluline on mudelipere. Praegu t
 |---|---|---|---|
 | **Qwen3** | Väga tugev üldmudel, hea koodis, 119 keelt, mõtlemis- ja non-thinking mode | Kõik variandid ei ole sama kerged kui kõige väiksemad Gemma/Ministral valikud | Vaikevalik enamikele |
 | **Gemma 3** | 140+ keelt, vision, 128K context, tugev single-GPU positsioneerimine | Kõik kasutusjuhud ei vaja vision'it, mõnele tundub Qwen praktilisem koodiabis | Kui tahad ühte väikest, moodsat ja multimodaalset mudeliperekonda |
-| **Mistral / Ministral 3** | Väga hea edge- ja local-lugu, multimodaalne, reasoning-variandid, Apache 2.0 | Kohalikul turul vähem vaikimisi valik kui Qwen või Gemma | Kui rõhk on kiirusel, edge'il või hästi pakendatud väikestel mudelitel |
-| **DeepSeek-R1 / Distill** | Väga tugev reasoning, matemaatika, loogika, kood | Täis-R1 on lokaalselt väga raske; päris praktiline valik on distill, mitte flagship | Kui tähtis on reasoning, mitte lihtsalt igapäevane chat |
+| **Mistral 3 / Ministral 3** | Väga hea edge- ja local-lugu, multimodaalne, reasoning-variandid, Apache 2.0 | Nime- ja tootepere on natuke segane, kohalikul turul vähem vaikimisi valik kui Qwen või Gemma | Kui rõhk on kiirusel, edge'il või hästi pakendatud väikestel mudelitel |
+| **DeepSeek-R1-Distill** | Väga tugev reasoning, matemaatika, loogika, kood | Täis-R1 ise on lokaalselt ebapraktiline; distilled variandid ei ole parimad üldassistendid | Kui tähtis on reasoning, mitte lihtsalt igapäevane chat |
 
 ### Qwen3
 
@@ -139,6 +155,8 @@ Põhjused:
 - Qweni enda docs soovitavad lokaalseks kasutuseks nii Ollamat, LM Studiot, MLX-i kui ka llama.cpp-d
 
 See viimane punkt on oluline. Qweni ökosüsteem ei ole kinni ühes runtime'is. See muudab Qweni väga praktiliseks valikuks blogi lugejale, kes võib alustada näiteks Ollamast, aga minna hiljem LM Studio või MLX-i peale.
+
+Kui sinu põhitöö on puhas koodiabi või agentne arendustöö, siis tasub sama perekonna sees vaadata eraldi ka `Qwen3-Coder` varianti. Üldise starter-soovituse tasemel jätaksime siiski `Qwen3` vaikevalikuks, sest see on paindlikum ka väljaspool puhast kooditööd.
 
 Meie soovitus:
 
@@ -161,9 +179,9 @@ Meie soovitus:
 - kõige huvitavam alternatiiv Qwenile üldkasutuses
 - eriti tugev siis, kui vision või väga lai keeletoetus on oluline
 
-### Mistral / Ministral 3
+### Mistral 3 / Ministral 3
 
-Mistrali kohaliku AI lugu on 2026. aasta seisuga natuke kaheharuline. Nende avatud väikeste kohalike mudelite seas tasub vaadata nii `Mistral Small 3.x` kui ka `Ministral 3` peret. Selles artiklis pean lokaalse kasutuse vaatest silmas eeskätt `Ministral 3` mudeleid: `3B`, `8B` ja `14B`, koos instruct- ja reasoning-variantidega ning pilditoega.
+Mistrali kohaliku AI lugu on 2026. aasta seisuga natuke segase nimekihiga. Sama katuse all kohtab nii `Mistral Small 3.x` kui ka `Ministral 3` peret. Selles artiklis pean starter-soovituse vaatest silmas eeskätt `Ministral 3` mudeleid: `3B`, `8B` ja `14B`, koos instruct- ja reasoning-variantidega ning pilditoega. `Mistral Small 3.x` on selles pildis pigem järgmine aste neile, kes tahavad natuke rohkem võimekust ja kellel on rohkem mälu.
 
 Mistrali enda sõnastus rõhutab siin "edge and local use cases", multimodaalsust, multilingual'it ja head cost-to-performance suhet. See teeb neist väga tõsise kandidaadi neile, kes ei taha ainult "veel üht chatbotti", vaid otsivad väikest, kiiret ja hästi pakendatud kohalikku töölooma.
 
@@ -181,6 +199,8 @@ Oluline nüanss: täis `DeepSeek-R1` ise on väga suur mudel. Ametliku repo jär
 
 Just distilled variandid on lokaalse kasutuse jaoks huvitavad. DeepSeek avaldas 1.5B, 7B, 14B, 32B ja suuremaid distilled mudeleid Qweni ja Llama baasil. Kui su fookus on reasoning, siis `DeepSeek-R1-Distill-Qwen-7B`, `14B` või `32B` on palju realistlikum koht, kust alustada.
 
+See baas on oluline detail. Praktikas tähendab see, et sa ei vali ainult "DeepSeeki", vaid ka seda, kas tahad reasoning'uks Qweni- või Llama-põhist distilled varianti. Runtime'i, kvantisatsiooni ja üldise käitumise mõttes on see päris oluline vahe.
+
 Meie soovitus:
 
 - parim valik reasoning'u jaoks
@@ -195,6 +215,8 @@ Meie soovitus:
 Alusta siit:
 
 - `Ollama + Qwen3`
+
+Kui sinu töö on valdavalt repo-sisene koodiabi, siis vaata sama perekonna sees lisaks `Qwen3-Coder` varianti.
 
 Põhjus:
 
@@ -244,16 +266,17 @@ Kui peaksime soovitama ainult ühe kombinatsiooni enamikele Maci tavakasutajatel
 
 ## Kokkuvõte
 
-`Ollama + Qwen` ei ole halb soovitus. Vastupidi, see on endiselt väga tugev soovitus. Aga see ei ole ainus mõistlik tee.
+`Ollama + Qwen3` ei ole halb soovitus. Vastupidi, see on endiselt väga tugev soovitus. Aga see ei ole ainus mõistlik tee.
 
 Täna võiks seda ausamalt sõnastada nii:
 
+- enne mudelipere valikut määra ära oma mälu- ja masinaklass
 - `Ollama` on üks lihtsamaid viise kohaliku AI-ga arendajana alustada
 - `LM Studio` võib olla kõige lihtsam viis Maci desktop-kasutajale
 - `MLX` on kõige huvitavam Apple-native tee tehnilisele kasutajale
 - `Qwen3` on kõige turvalisem üldine mudelisoovitus
 - `Gemma 3` on väga tugev alternatiiv, eriti kui tähtis on vision või single-GPU töö
-- `Mistral / Ministral 3` tasub vaadata siis, kui tahad väikest ja hästi pakendatud edge-first mudelit
+- `Mistral 3 / Ministral 3` tasub vaadata siis, kui tahad väikest ja hästi pakendatud edge-first mudelit
 - `DeepSeek-R1-Distill` tasub valida siis, kui reasoning on prioriteet
 
 Praktilises töös on kõige mõistlikum alustada lihtsast kombinatsioonist, saada tunnetus kätte ja alles siis hakata optimeerima runtime'i, mudeli suurust või riistvara. Nii jõuab kiiremini päris kasutuseni ja väldib olukorda, kus pool energiast kulub benchmark'ide lugemisele.
@@ -266,7 +289,7 @@ Kui sul on endal huvitav Maci, NVIDIA või hübriidne kohalik setup, kirjuta mei
 
 ## Allikad
 
-Faktid kontrollitud 7. märtsil 2026.
+Faktid kontrollitud 16. märtsil 2026.
 
 - Ollama Quickstart: https://docs.ollama.com/quickstart
 - Ollama docs overview: https://docs.ollama.com/
@@ -276,6 +299,7 @@ Faktid kontrollitud 7. märtsil 2026.
 - Jan local API server: https://www.jan.ai/docs/desktop/api-server
 - MLX LM: https://github.com/ml-explore/mlx-lm
 - Qwen3 official blog: https://qwenlm.github.io/blog/qwen3/
+- Qwen3-Coder official blog: https://qwenlm.github.io/blog/qwen3-coder/
 - Gemma docs: https://ai.google.dev/gemma/docs
 - Gemma 3 announcement: https://blog.google/innovation-and-ai/technology/developers-tools/gemma-3/
 - Mistral models docs: https://docs.mistral.ai/getting-started/models
