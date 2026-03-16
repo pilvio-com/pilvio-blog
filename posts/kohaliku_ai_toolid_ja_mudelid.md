@@ -18,8 +18,8 @@ Oluline raam: see võrdlus on teadlikult Maci ja Apple Siliconi vaates. Kui oled
 
 Selles postituses võrdleme kahte asja:
 
-1. milline lokaalne tööriist on Maci kasutaja jaoks kõige mõistlikum
-2. milline mudelipere sobib üldiseks assistendiks, koodiabiks, tõlkimiseks või raskemaks reasoning'uks
+1. milline lokaalne tööriist on Maci kasutaja jaoks kõige mõistlikum?
+2. milline mudelipere sobib üldiseks assistendiks, koodiabiks, tõlkimiseks või raskemaks reasoning'uks?
 
 Kui tahad ainult lühikest vastust, siis soovitame alustada nii:
 
@@ -36,10 +36,10 @@ Veel üks praktiline hoiatus: tööriist ja mudel ei ela täiesti eraldi. Mõni 
 
 Kõigepealt tuleb eristada kahte eri küsimust:
 
-- mis on kõige lihtsam viis esimest mudelit üldse proovida
-- mis on kõige mõistlikum tööriist päris arendustööks
+- mis on kõige lihtsam viis esimest mudelit üldse proovida?
+- mis on kõige mõistlikum tööriist päris arendustööks?
 
-Need ei ole alati sama vastus.
+Neil küsimustel ei ole alati sama vastus.
 
 ### Kiire võrdlus
 
@@ -52,15 +52,15 @@ Need ei ole alati sama vastus.
 
 ### Ollama
 
-Arendaja jaoks on `Ollama` endiselt üks tugevamaid vaikevalikuid. Ametlik quickstart on sisuliselt: installi, käivita `ollama`, vali mudel ja kasuta. Lisaks on kohe olemas lokaalne API, mis teeb sellest hea silla prototüübist päris rakenduseni.
+Arendaja jaoks on `Ollama` endiselt üks tugevamaid valikuid. Ametlik quickstart on sisuliselt: installi, käivita `ollama`, vali mudel ja kasuta. Lisaks on kohe olemas lokaalne API, mis teeb sellest hea silla prototüübist päris rakenduseni.
 
 Ollama suur pluss ei ole ainult lihtsus, vaid ka see, et sellest on kujunenud de facto lokaalse arenduse standard. Väga paljud õpetused, editor-integratsioonid ja väiksemad AI-tööriistad oskavad Ollamaga kohe rääkida.
 
 Meie soovitus:
 
 - kui töötad terminalis, on see sageli kõige lihtsam tee
-- kui tahad kiiresti OpenAI-laadset lokaalset endpoint'i, on see väga raske ületada
-- kui tahad lihtsalt hiirega mudelit valida ja chattida, ei ole see kõige mugavam variant
+- kui tahad kiiresti OpenAI-laadset lokaalset endpoint'i, on sellele väga raske võrdväärset leida
+- kui tahad lihtsalt hiirega mudelit valida ja chattida, siis ei ole see kõige mugavam variant
 
 ### LM Studio
 
@@ -75,7 +75,7 @@ Meie soovitus:
 
 ### Jan
 
-`Jan` on huvitav neile, kes tahavad avatud lähtekoodiga desktop-rakendust, mis pakub lisaks chatile ka lokaalset OpenAI-ühilduvat API serverit. Jani docs kirjeldavad seda üsna otse: lokaalne server jookseb sinu arvutis, on `OpenAI-compatible` ja kasutab all mootorina `llama.cpp`.
+`Jan` on huvitav neile, kes tahavad avatud lähtekoodiga desktop-rakendust, mis pakub lisaks chatile ka lokaalset OpenAI-ühilduvat API serverit. Jani docs kirjeldab seda üsna otse: lokaalne server jookseb sinu arvutis, on `OpenAI-compatible` ja kasutab all mootorina `llama.cpp`.
 
 Jan on tugev valik siis, kui sulle meeldib "desktop app first" lähenemine, aga tahad samas ka API-d tööriistade või sisemiste skriptide jaoks.
 
@@ -139,7 +139,7 @@ See ei ole ka täielik turuülevaade. Näiteks `Llama` perekond on endiselt täi
 | Mudelipere | Tugevused | Nõrkused | Millal valida |
 |---|---|---|---|
 | **Qwen3** | Väga tugev üldmudel, hea koodis, 119 keelt, mõtlemis- ja non-thinking mode | Kõik variandid ei ole sama kerged kui kõige väiksemad Gemma/Ministral valikud | Vaikevalik enamikele |
-| **Gemma 3** | 140+ keelt, vision, 128K context, tugev single-GPU positsioneerimine | Kõik kasutusjuhud ei vaja vision'it, mõnele tundub Qwen praktilisem koodiabis | Kui tahad ühte väikest, moodsat ja multimodaalset mudeliperekonda |
+| **Gemma 3** | 140+ keelt, vision, 128K context, tugev single-GPU positsioneerimine | Kõik kasutusjuhud ei vaja vision'it, mõnele tundub Qwen praktilisem koodi kirjutamise abiline | Kui tahad ühte väikest, moodsat ja multimodaalset mudeliperekonda |
 | **Mistral 3 / Ministral 3** | Väga hea edge- ja local-lugu, multimodaalne, reasoning-variandid, Apache 2.0 | Nime- ja tootepere on natuke segane, kohalikul turul vähem vaikimisi valik kui Qwen või Gemma | Kui rõhk on kiirusel, edge'il või hästi pakendatud väikestel mudelitel |
 | **DeepSeek-R1-Distill** | Väga tugev reasoning, matemaatika, loogika, kood | Täis-R1 ise on lokaalselt ebapraktiline; distilled variandid ei ole parimad üldassistendid | Kui tähtis on reasoning, mitte lihtsalt igapäevane chat |
 
@@ -156,7 +156,7 @@ Põhjused:
 
 See viimane punkt on oluline. Qweni ökosüsteem ei ole kinni ühes runtime'is. See muudab Qweni väga praktiliseks valikuks blogi lugejale, kes võib alustada näiteks Ollamast, aga minna hiljem LM Studio või MLX-i peale.
 
-Kui sinu põhitöö on puhas koodiabi või agentne arendustöö, siis tasub sama perekonna sees vaadata eraldi ka `Qwen3-Coder` varianti. Üldise starter-soovituse tasemel jätaksime siiski `Qwen3` vaikevalikuks, sest see on paindlikum ka väljaspool puhast kooditööd.
+Kui sinu põhitöö on puhas koodi kirjutamine või agentne arendustöö, siis tasub sama perekonna sees vaadata eraldi ka `Qwen3-Coder` varianti. Üldise starter-soovituse tasemel jätaksime siiski `Qwen3` vaikevalikuks, sest see on paindlikum ka väljaspool puhast kooditööd.
 
 Meie soovitus:
 
