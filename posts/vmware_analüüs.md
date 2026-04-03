@@ -1,18 +1,27 @@
 ---
-title: "Long read: VMware on-premise lahenduse kuluarvutusloogika analüüs ja mudel"           # Required: Post title
-author: "Kaur Kiisler + Gemini DeepResearch"                   # Required: Author name
-publishedAt: "4. juuni 2025"        # Required: Estonian format date
-category: "Üldine"                  # Required: Post category
-tags: ["pilvio.pro", "tco", "vmware"]          # Required: Array of tags
-featured: false                         # Required: Boolean (only one post should be true)
-excerpt: "Käesolev aruanne analüüsib kriitiliselt VMware kohapealsete (on-premise) lahenduste tüüpilisi kuluarvutusloogikaid."         # Optional: Custom excerpt (auto-generated if not provided)
-imageUrl: "/media/vmware_long.png" # Optional: Featured image URL
+title: "Long read: VMware kohapealse lahenduse kuluarvutusloogika analüüs ja mudel"
+author: "Kaur Kiisler"
+publishedAt: "4. juuni 2025"
+category: "Üldine"
+tags: ["pilvio.pro", "tco", "vmware"]
+featured: false
+excerpt: "Käesolev aruanne analüüsib kriitiliselt VMware kohapealsete lahenduste tüüpilisi kuluarvutusloogikaid."
+imageUrl: "/media/vmware_long.png"
 ---
-# VMware on-premise lahenduse kuluarvutusloogika analüüs ja mudel
 
 ## 1. Kokkuvõte
 
-Käesolev aruanne analüüsib kriitiliselt VMware kohapealsete (on-premise) lahenduste tüüpilisi kuluarvutusloogikaid, mida sageli kasutatakse turundusmaterjalide kalkulaatorites, ning esitab täiustatud ja põhjalikuma mudeli kogukulu (TCO) hindamiseks. VMware kohapealsete lahenduste TCO täpne hindamine on keerukas ülesanne, mis hõlmab arvukalt otseseid ja kaudseid kulusid, mida lihtsustatud kalkulaatorid sageli eiravad. Olukorda komplitseerib veelgi VMware'i hiljutine litsentsimisstrateegia muutus Broadcomi omanduses, mis on fundamentaalselt muutnud tarkvarakulude struktuuri. Turunduskalkulaatorite loogika keskendub sageli esialgsetele, nähtavatele kuludele, nagu baasriistvara ja tarkvara esialgsed litsentsitasud, jättes tähelepanuta märkimisväärsed jooksvad tegevuskulud (OpEx). Nende hulka kuuluvad energiatarve, jahutus, IT-administratsioon, tarkvara elutsükli kogukulud ja füüsilise infrastruktuuri üldkulud. Selline lähenemine viib kogukulu olulise alahindamiseni. Käesolev aruanne pakub nende puuduste kriitilist analüüsi ja esitleb mitmetahulist TCO mudelit. See mudel on loodud selleks, et anda organisatsioonidele realistlikum ja usaldusväärsem raamistik VMware kohapealsete investeeringute hindamiseks. Turunduskalkulaatorite peamine probleem seisneb nende loomupärases kalduvuses esitleda madalamat esialgset hinda klientide ligimeelitamiseks, mis harva peegeldab pikaajalist rahalist kohustust. See aruanne püüab seda lahknevust parandada, pakkudes läbipaistvat ja kõikehõlmavat lähenemist kulude hindamisele.
+Käesolev aruanne analüüsib kriitiliselt VMware kohapealsete lahenduste tüüpilisi kuluarvutusloogikaid, mida sageli kasutatakse turundusmaterjalide kalkulaatorites, ning esitab täiustatud ja põhjalikuma mudeli kogukulu (TCO) hindamiseks. VMware kohapealsete lahenduste TCO täpne hindamine on keerukas ülesanne, mis hõlmab arvukalt otseseid ja kaudseid kulusid, mida lihtsustatud kalkulaatorid sageli eiravad. Olukorda komplitseerib veelgi VMware'i hiljutine litsentsimisstrateegia muutus Broadcomi omanduses, mis on fundamentaalselt muutnud tarkvarakulude struktuuri. Turunduskalkulaatorite loogika keskendub sageli esialgsetele, nähtavatele kuludele, nagu baasriistvara ja tarkvara esialgsed litsentsitasud, jättes tähelepanuta märkimisväärsed jooksvad tegevuskulud (OpEx). Nende hulka kuuluvad energiatarve, jahutus, IT-administratsioon, tarkvara elutsükli kogukulud ja füüsilise infrastruktuuri üldkulud. Selline lähenemine viib kogukulu olulise alahindamiseni. Käesolev aruanne pakub nende puuduste kriitilist analüüsi ja esitleb mitmetahulist TCO mudelit. See mudel on loodud selleks, et anda organisatsioonidele realistlikum ja usaldusväärsem raamistik VMware kohapealsete investeeringute hindamiseks. Turunduskalkulaatorite peamine probleem seisneb nende loomupärases kalduvuses esitleda madalamat esialgset hinda klientide ligimeelitamiseks, mis harva peegeldab pikaajalist rahalist kohustust. See aruanne püüab seda lahknevust parandada, pakkudes läbipaistvat ja kõikehõlmavat lähenemist kulude hindamisele.
+
+Oluline märkus: see tekst kasutab 2025. aasta juuni hinnanäiteid ja ligikaudseid vahetuskursse. Võta seda otsustusraamistikuna, mitte jooksva hinnakirjana. Enne päris ostuotsust küsi värsked hinnapakkumised Broadcomilt, riistvarapartneritelt ja pilvepakkujalt.
+
+Hinnaviited on selles versioonis värskendatud 16. märtsil 2026. Tarkvara, pilve ja hosted teenuste hinnad on allpool seotud eeskätt ametlike hinnalehtede või ametlike dokumentidega. Riistvaratabelid on jäetud teadlikult eelarvestuse orientiiriks, sest serveri, SAN-i ja võrguriistvara lõpphind sõltub liiga palju kanalist, garantiist, konfiguratsioonist ja allahindlustest.
+
+Kui tahad sellest artiklist ainult kolm asja meelde jätta:
+
+- ära võrdle VMware kohapealset lahendust ainult hosti- või litsentsihinna järgi
+- pane 3-5 aasta vaates samasse tabelisse energia, tööjõud, varundus, DR ja ruumikulud
+- võrdle eraldi hüperskaalerit ja odavamat hosted teenusepakkujat, sest nende kulumudel ei ole sama
 
 ## 2. Sissejuhatus: VMware Kohapealse Lahenduse Kulude Tegelikkus
 
@@ -22,9 +31,9 @@ VMware kohapealsete lahenduste kogukulu (Total Cost of Ownership, TCO) täpne hi
 
 Broadcomi strateegia on toonud kaasa fundamentaalseid muutusi VMware'i toodete, nagu vSphere ja vSAN, litsentsimises. Kõige olulisem neist on loobumine püsivatest (perpetual) litsentsidest uute müükide puhul ning üleminek ainult tellimuspõhisele (subscription-only) mudelile. See tähendab, et organisatsioonid ei saa enam osta vSphere'i või vSANi ühekordse tasu eest, vaid peavad sõlmima ajaliselt piiratud tellimusi, tavaliselt 1, 3 või 5 aastaks. Pikemad tellimusperioodid võivad pakkuda soodsamaid tingimusi. See muudatus transformeerib VMware'i kulud peamiselt kapitalimahukast (CapEx) mudelist tegevuskuludele (OpEx) keskenduvaks.
 
-Teine märkimisväärne muudatus on üleminek tuumapõhisele (per-core) litsentsimisele, asendades varasema protsessoripõhise (per-socket) mudeli. Nüüd tuleb litsentseerida serveri kõik füüsilised tuumad, kusjuures kehtib miinimummäära nõue – näiteks loetakse üks protsessor vähemalt 16-tuumaliseks, isegi kui sellel on tegelikult vähem tuumasid. See mõjutab eriti väiksemaid ja keskmise suurusega ettevõtteid (VKE), kes võivad olla sunnitud maksma kasutamata tuumade eest. Näiteks vSphere Standardi soovituslik hind (MSRP) on $50 tuuma kohta (3-aastase lepingu aastane väärtus, ACV) ja see sisaldab vCenter Standardit. vSphere Essentials Plus Kit maksab $35 tuuma kohta (3-aastane ACV), kuid seda müüakse ainult 96-tuumalise komplektina, mis on mõeldud maksimaalselt kolmele hostile ja sisaldab vCenter Essentialsi.
+Teine märkimisväärne muudatus on üleminek tuumapõhisele (per-core) litsentsimisele, asendades varasema protsessoripõhise (per-socket) mudeli. Nüüd tuleb litsentseerida serveri kõik füüsilised tuumad, kusjuures kehtib miinimummäära nõue – näiteks loetakse üks protsessor vähemalt 16-tuumaliseks, isegi kui sellel on tegelikult vähem tuumasid. See mõjutab eriti väiksemaid ja keskmise suurusega ettevõtteid (VKE), kes võivad olla sunnitud maksma kasutamata tuumade eest. Väiksemas otsas tähendab see, et isegi tagasihoidliku protsessoriga host võib hinnastuses muutuda 16-tuuma serveriks; samal ajal on `Essentials Plus` ametliku tootevõrdluse järgi tellimuspõhine 96-tuuma väikepakett kuni kolmele hostile.
 
-Lisaks on Broadcom lihtsustanud VMware'i tooteportfelli, koondades tooted suurematesse pakettidesse nagu VMware Cloud Foundation (VCF) ja vSphere Foundation (VVF). Kuigi see võib tunduda lihtsustamisena, võib see sundida kliente maksma komponentide eest, mida nad tegelikult ei vaja. Näiteks vSphere Foundation (VVF) maksab $135 tuuma kohta (3-aastane ACV) ja sisaldab vSphere Enterprise Plus, vCenter Standard, Tanzu Kubernetes Grid ja Aria Suite Standard.
+Lisaks on Broadcom lihtsustanud VMware'i tooteportfelli, koondades tooted suurematesse pakettidesse nagu VMware Cloud Foundation (VCF) ja vSphere Foundation (VVF). Kuigi see võib tunduda lihtsustamisena, võib see sundida kliente maksma komponentide eest, mida nad tegelikult ei vaja. VVF sisaldab ametlike dokumentide järgi lisaks vSphere'ile ja vCenterile ka vSAN-i entitlement'i ning seob seega varem eraldi ostetud komponente tugevamalt ühe subscription-rida alla.
 
 Need litsentsimuudatused on globaalsed ja jõustusid 2024. aasta alguses, mil VMware lõpetas püsivate litsentside müügi ja paljudel juhtudel ka olemasolevate püsilepingute toe (SnS) uuendamise. Kuigi Broadcom on teinud mõningaid järeleandmisi, näiteks pakkudes teatud püsivate litsentsiversioonide jaoks tasuta kriitilisi turvapaiku ka pärast toe lõppemist, on üldine suund selge: VMware'i tehnoloogia jätkuv kasutamine nõuab edaspidi aktiivset tellimust. See üleminek on Broadcomi jaoks strateegiline samm prognoositava korduva tulu suurendamiseks, mis aga klientidele, eriti neile, kes said kasu püsivate litsentside pikaajalisest kasutamisest, tähendab potentsiaalselt kõrgemaid ja jäigemaid jooksvaid kulusid.
 
@@ -47,6 +56,8 @@ Selles jaotises kirjeldatakse üksikasjalikult kõiki kuluosi, mis on liigitatud
 ### A. Kapitalikulud (CapEx)
 
 Kapitalikulud hõlmavad esialgseid investeeringuid riistvarasse, tarkvarasse ja infrastruktuuri ettevalmistamisse.
+
+Riistvara puhul ei tasu otsida üht "õiget" avalikku hinda. Sama klassi serveri või salvestuslahenduse hind võib partneri, garantiitaseme, ketaste, protsessorite ja tugilepingu järgi väga palju kõikuda. Seetõttu on allolevad riistvaratabelid eelarvestuse orientiir, mitte värske hinnakiri.
 
 #### Riistvaraline Infrastruktuur
 
@@ -72,7 +83,7 @@ Kapitalikulud hõlmavad esialgseid investeeringuid riistvarasse, tarkvarasse ja 
     | iSCSI SAN (Algtase) | Dell PowerVault ME5012/HPE MSA 1060 | 12           | 8x 2.4TB 10K SAS HDD (RAID6)              | 8                              | 2000 - 3200                   | 5000 - 8000                             | 7000 - 11200              |
     | iSCSI SAN (SSD)     | Dell PowerVault ME5012/HPE MSA 1060 | 12           | 6x 1.92TB Enterprise SSD (RAID5)          | 6                              | 2400 - 4000                   | 5000 - 8000                             | 7400 - 12000              |
    
-    *\*Märkus: Hinnad on illustratiivsed. Kasutatav maht sõltub RAID tasemest. Allikad: ``.* Jagatud salvestusruum on VMware funktsioonide, nagu vMotion ja HA, jaoks kriitilise tähtsusega. See tabel aitab eelarvestada seda sageli märkimisväärset kulu.
+    *\*Märkus: Hinnad on illustratiivsed. Kasutatav maht sõltub RAID tasemest. Allikate loetelu on artikli lõpus.* Jagatud salvestusruum on VMware funktsioonide, nagu vMotion ja HA, jaoks kriitilise tähtsusega. See tabel aitab eelarvestada seda sageli märkimisväärset kulu.
 
 * **Võrguseadmed (Switchid, Ruuterid, Tulemüürid VKE serveriruumi jaoks)**: Switchid, ruuterid ja tulemüürid võivad maksta $5000 kuni $50 000 sõltuvalt jõudlusest/turvalisusest. Serveripõhiselt võib võrguseadmete (switch, ruuter, tulemüür) kulu olla $250-$500 serveri kohta. VKE ruuter: $80-$350 või $150-$500. Hallatav switch: $250-$450 või $50-$500+. Riistvaraline tulemüür: $400-$2300 või $200-$1000+. Täiustatud tulemüürid võivad maksta $5000–$20 000 seadme kohta.
 
@@ -85,52 +96,48 @@ Kapitalikulud hõlmavad esialgseid investeeringuid riistvarasse, tarkvarasse ja 
     | VKE Tulemüüri Seade         | 500 Mbps - 1 Gbps läbilaskevõime, VPN tugi         | 300 - 1500                  |
     | VKE Ruuter                  | Gigabit WAN/LAN, VPN                               | 100 - 400                   |
    
-    *\*Märkus: Hinnad on illustratiivsed. Allikad: ``.* Võrgundus on fundamentaalne, kuid sageli TCO baasarvutustes tähelepanuta jäetud. See tabel toob esile usaldusväärse ja turvalise kohapealse keskkonna jaoks vajalike äriklassi seadmete kulud.
+    *\*Märkus: Hinnad on illustratiivsed. Allikate loetelu on artikli lõpus.* Võrgundus on fundamentaalne, kuid sageli TCO baasarvutustes tähelepanuta jäetud. See tabel toob esile usaldusväärse ja turvalise kohapealse keskkonna jaoks vajalike äriklassi seadmete kulud.
 
-* **Katkematu Toite Allikas (UPS)**: Proportsionaalne kulu on tavaliselt 25-50% serveri maksumusest. Redundantsed toitesüsteemid varundamiseks võivad maksta $1500 - $3000. UPSi enda energiakulu võib olla $100-$200 kuus. UPSi kulud ei piirdu ainult riistvaraga, vaid hõlmavad ka pidevat akude vahetust (tavaliselt iga 3-5 aasta tagant) ja nende tarbitavat elektrit. Need tegurid lisanduvad TCO-le ja jäävad sageli tähelepanuta.
+* **Katkematu Toite Allikas (UPS)**: UPSi kulu on tavaliselt märkimisväärne kõrvalrida, mitte tasuta lisavidin. Lisaks seadmele endale tuleb arvestada akude vahetuse, energiakao ja hooldusega. TCO vaates on oluline mitte hinnata ainult UPSi ostuhinda, vaid selle kogu elutsükli mõju.
 
-* **Esialgsed Füüsilise Turvalisuse Meetmed (Juurdepääsukontroll, baasvalve serveriruumile)**: Biomeetrilised juurdepääsukontrollid: $10 000–$50 000 seadistuse kohta. Klahvistikuga juurdepääsukontroll ukse kohta: $1000–$2500; võtmekaardi/kiibi süsteemid: $1500–$3500 ukse kohta. Baas-CCTV paigaldus: $100-$2500+; seirekulu: $30-$150+ kaamera kohta kuus. Füüsiline turvalisus on kohapealse lahenduse baaskulu. Isegi serveriruumi ukse baasjuurdepääs klahvistiku/kaardiga ja paar kaamerat kujutavad endast arvestatavat kapitalikulu ja potentsiaalset jooksvat tegevuskulu.
+* **Esialgsed Füüsilise Turvalisuse Meetmed (Juurdepääsukontroll, baasvalve serveriruumile)**: Füüsiline turvalisus on kohapealse lahenduse baaskulu. Isegi lihtne serveriruumi ukse juurdepääsukontroll, mõned kaamerad ja baasvalve kujutavad endast eraldi kapitalikulu ning võimalikku jooksvat seirekulu. Kui neid ei ole juba olemas, tuleb need TCO-s eraldi välja tuua.
 
 * **Riistvara Amortisatsioon**: Tavapärane 3-5 aastane kasutusiga/amortisatsiooniperiood serveritele, salvestusruumile ja võrguseadmetele TCO arvutustes. See teisendab kapitalikulud aastaseks kuluks võrdluse tegemiseks. Riistvara ei kesta igavesti; selle maksumus tuleb TCO täpseks arvutamiseks jaotada selle kasulikule elueale. 3-5 aastane tsükkel on tavaline, mille järel jõudlus, töökindlus ja garantiikate vähenevad, käivitades sageli uuendustsükli.
 
 #### Tarkvara Litsentsimine (Esialgsed ja Jooksvad Tellimuskulud)
 
 * **VMware vSphere (vSphere Standard, Essentials Plus Kit; tuumapõhine, miinimumid, vCenter)**:
-    vSphere Standard: $50/tuum MSRP (3-aastane ACV), sisaldab vCenter Standardit. Minimaalselt 16 tuuma protsessori kohta.
-    vSphere Essentials Plus Kit: $35/tuum MSRP (3-aastane ACV), müüakse 96-tuumalise komplektina (max 3 hosti), sisaldab vCenter Essentialsi.
-    Näidisstsenaariumid allikast 2:
-    (2) Hosti, kokku 16 tuuma hosti kohta (või vähem), Essentials Plus: $10 080 (3-aastane periood, 96-tuumaline komplekt).
-    (1) Host, kokku 16 tuuma (või vähem), vSphere Standard: $2400 (3-aastane periood).
-    (2) Hosti, kokku 16 tuuma hosti kohta (või vähem), vSphere Standard: $4800 (3-aastane periood).
-    vSphere Foundation (VVF) maksab $135/tuum (3-aastane ACV) ja sisaldab vSphere Enterprise Plus, vCenter Standard, Tanzu Kubernetes Grid, Aria Suite Standard.
+    Broadcomi ja VMware ametlikud dokumendid kinnitavad, et praegune loogika on tuumapõhine: kõik füüsilised tuumad tuleb litsentseerida ning iga füüsilise protsessori kohta kehtib vähemalt 16 tuuma miinimum. Ametlik tootevõrdlus näitab, et `vSphere Essentials Plus Kit` on tellimuspõhine väikepakett, mis sisaldab 96 tuumalitsentsi ja on mõeldud kuni kolmele füüsilisele serverile. `vSphere Standard` ja `vSphere Foundation (VVF)` on samuti tellimuspõhised, sisaldavad vastavalt `vCenter Standardit` ning VVF puhul ka vSAN-i entitlement'i. VVF puhul tuleb arvestada, et Broadcomi 2025. aasta ametliku info järgi sisaldub nüüd `0.25 TiB` vSAN-i mahtu iga litsentseeritud tuuma kohta.
 
-    **Tabel 4: VMware vSphere Tellimuskulude Stsenaariumid**
+    Sisuline muutus võrreldes varasema versiooniga on see, et ma ei hoia siin enam vanu MSRP dollarinumbreid. Broadcom ei kuva avalikke lõpphindu sama läbipaistvalt kui klassikalised hinnalehed ja päris ostuhind sõltub partnerist, regioonist ja lepingutingimustest. Seetõttu on mõistlik kasutada allolevat tabelit litsentsimismahu, mitte näilise hinnatäpsuse kontrolliks.
 
-    | Stsenaarium (nt 2 Hosti, 1 Protsessor/Host, 12 Tuuma/Protsessor) | Valitud vSphere Pakett (Standard/Essentials Plus) | Tegelikud Tuumad | Litsentseeritud Tuumad (miinimumide tõttu) | Tuuma MSRP (Aastane, €) | Aastane Kogukulu (€) | 3 Aasta Kogukulu (€) |
-    | :--------------------------------------------------------------- | :----------------------------------------------- | :-------------- | :----------------------------------------- | :---------------------- | :------------------- | :------------------- |
-    | "1 Host, 1 CPU, 8 tuuma"                                         | vSphere Standard                                 | 8               | 16                                         | ~46                     | ~736                 | ~2208                |
-    | "2 Hosti, 1 CPU/Host, 12 tuuma/CPU"                              | vSphere Standard                                 | 24              | 32 (2x16)                                  | ~46                     | ~1472                | ~4416                |
-    | "2 Hosti, 1 CPU/Host, 12 tuuma/CPU"                              | vSphere Essentials Plus                          | 24              | 96 (kit)                                   | ~32                     | ~3072                | ~9216                |
-    | "3 Hosti, 2 CPU/Host, 16 tuuma/CPU"                              | vSphere Foundation                               | 96              | 96                                         | ~124                    | ~11904               | ~35712               |
-   
-    *\*Märkus: Hinnad on MSRP-põhised ja teisendatud eurodesse ligikaudse vahetuskursiga. Tegelikud hinnad võivad erineda. Allikad: ``.* See tabel illustreerib uue litsentsimismudeli rahalist mõju tüüpilistele VKE konfiguratsioonidele, muutes abstraktse "tuumapõhise" hinnakujunduse konkreetseks.
+    **Tabel 4: VMware vSphere Litsentsimismahu Stsenaariumid**
 
-* **VMware Site Recovery Manager (SRM) / Live Site Recovery**: SRM oli varem litsentseeritud kaitstud virtuaalmasina (VM) kohta (Standard kuni 75 VM-i saidi kohta, Enterprise ilma piiranguta). Nüüd pakutakse VMware Live Recovery't (mis sisaldab Live Site Recovery't, SRM-i edasiarendust) "Kaitstud VM-i tellimuste" ja "Kaitstud mahu tellimustega". VMware Live Site Recovery kasutamiseks on vaja ainult "Kaitstud VM-i tellimusi". Kaitstud VM-ide soovituslik hind (3-aastane tellimus ja pikem, aastahind): $400 VM-i kohta aastas (USD). See sisaldab tootmistuge ja arveldatakse ettemaksuna. Live Site Recovery jaoks ei ole VM-ide miinimumostu nõuet. Olemasolevad SRM-litsentsid konverteeritakse aktiveerimisel Live Site Recovery litsentsideks. See on lisandmoodul, mitte automaatselt VCF/VVF baaspakettide osa. Avariitaaste on kriitiline, kuid sageli eraldi hinnastatud komponent. Üleminek VMware Live Recovery tellimusele VM-i kohta lisab veel ühe korduva kulukihi.
+    | Stsenaarium | Valitud vSphere pakett | Tegelikud tuumad | Litsentseeritud tuumad | Mida see tähendab ostus |
+    | :---------- | :--------------------- | :--------------- | :--------------------- | :---------------------- |
+    | 1 host, 1 CPU, 8 tuuma | vSphere Standard | 8 | 16 | vähemalt 16 tuuma tellimus |
+    | 2 hosti, 1 CPU/host, 12 tuuma/CPU | vSphere Standard | 24 | 32 | vähemalt 32 tuuma tellimus |
+    | 2 hosti, 1 CPU/host, 12 tuuma/CPU | vSphere Essentials Plus | 24 | 96 | üks Essentials Plus Kit (96 core) |
+    | 3 hosti, 2 CPU/host, 16 tuuma/CPU | vSphere Foundation | 96 | 96 | 96 tuuma VVF tellimus |
 
-* **Serveri Operatsioonisüsteemid (nt Windows Server Standard/Datacenter - tuumapõhine, CALid)**: Windows Server 2022 Standard (16-tuumaline pakett): ~$527. Microsofti poolt on 16-tuumaline pakett + 10 CAL-i hinnaga $1680. Windows Server 2022 Datacenter (16-tuumaline OEM): ~$4700 - $5063. Mõlemad nõuavad tuumapõhist litsentsimist (minimaalselt 16 tuuma serveri kohta, 8 tuuma protsessori kohta) ja CAL-e (kasutaja- või seadmepõhised). Standard CAL-id: ~$39/CAL; 5 kasutaja CAL-i ~$190.
+    *\*Märkus: tabel on nüüd teadlikult hinnavaba. Selle eesmärk on vältida valearvestust tuumade ja pakettide lõikes. Päris hinna jaoks küsi partnerilt quote sama mahu ja sama lepinguperioodiga.* See tabel illustreerib uue litsentsimismudeli praktilist mõju tüüpilistele VKE konfiguratsioonidele, muutes abstraktse tuumapõhise loogika konkreetseks.
 
-    **Tabel 5: Windows Serveri Litsentsimiskulude Näited**
+* **VMware Site Recovery Manager (SRM) / Live Site Recovery**: SRM oli varem litsentseeritud kaitstud virtuaalmasina (VM) kohta. Broadcomi ametlikud ostu- ja litsentsidokumendid näitavad, et tänane loogika käib `protected VM subscriptions` ja `protected capacity subscriptions` kaudu. VMware Live Site Recovery kasutamiseks on vaja `protected VM` tellimusi; protected capacity puudutab eeskätt Live Recovery Cloud / Cyber Recovery võimekust. Oluline TCO vaates on see, et DR jääb jätkuvalt eraldi hinnastatud kihiks, mitte ei tule automaatselt VCF/VVF baaspaketiga kaasa. Avalikku stabiilset hinnakirja Broadcom siin samal kujul ei kuva, seega tuleb see rida võtta partneri hinnapakkumisena.
 
-    | Serveri OS Väljaanne (Standard/Datacenter) | Litsentseeritavate Tuumade Arv (nt 16, 32) | Hinnanguline Tuumalitsentsi Kulu (€) | Kasutaja/Seadme CALide Arv | Hinnanguline CALide Kulu (€) | Hinnanguline OS Litsentsimise Kogukulu (€) |
-    | :------------------------------------------ | :----------------------------------------- | :----------------------------------- | :------------------------- | :--------------------------- | :----------------------------------------- |
-    | Windows Server 2022 Standard              | 16                                         | ~500 - 700                           | 10 Kasutajat               | ~350                         | ~850 - 1050                                |
-    | Windows Server 2022 Standard              | 32                                         | ~1000 - 1400                         | 25 Kasutajat               | ~875                         | ~1875 - 2275                               |
-    | Windows Server 2022 Datacenter            | 16                                         | ~4200 - 4700                         | 10 Kasutajat               | ~350                         | ~4550 - 5050                               |
-    | Windows Server 2022 Datacenter            | 32                                         | ~8400 - 9400                         | 25 Kasutajat               | ~875                         | ~9275 - 10275                              |
-   
-    *\*Märkus: Hinnad on illustratiivsed ja põhinevad jaemüügihindadel. CALide vajadus sõltub keskkonnast. Allikad: ``.* Serveri OS-i litsentsid on märkimisväärne tarkvarakulu. See tabel aitab mõista tuumalitsentside ja CALide kahekordset kulustruktuuri.
+* **Serveri Operatsioonisüsteemid (nt Windows Server Standard/Datacenter - tuumapõhine, CALid)**: Microsofti ametlik `Windows Server 2025` hinnaleht annab 16 tuuma viitehinnaks `Standard` väljaande puhul `$1,176` ja `Datacenter` väljaande puhul `$6,771`. Microsoft Store'i ametlik jaehind `Windows Server 2025 Standard 16 Core License Pack + 10 CALs` paketile on `$1,848`. Mõlemad väljaanded jäävad tuumapõhiseks ning nõuavad CAL-e. Praktikas tähendab see, et serveri OS-i rida on nüüd lihtsam siduda ametliku viitehinnaga, aga suuremate või mahuostu keskkondade puhul tuleb lõpphind ikkagi partnerilt.
 
-* **Varundus- ja Replikatsioonitarkvara (nt Veeam, Commvault - kui ei ole mujal komplekteeritud/kaetud)**: Veeam Data Platform Advanced Universal License (10 eksemplari pakett, 1-aastane uuendus): Hinnapakkumised varieeruvad suuresti, nt $1710 10 eksemplari paketi kohta või kõikuvad pakkumised $9000 kuni $22 000 110 eksemplari kohta. Veeam Universal License (VUL) on 5-10 litsentsiga kimpudes; 1 VM = 1 litsents. Commvault Backup & Recovery for VMs (tellimus, 10 VM-i, 3 aastat): $4259.99. Tüüpilised RPO/RTO 2. taseme rakendustele: RTO 4 tundi, RPO 2 tundi. 3. tase: RTO 8-24 tundi, RPO 4 tundi. Need eesmärgid mõjutavad varundusstrateegiat ja tarkvara valikut. Varundustarkvara on hädavajalik ja selle maksumus võib olla märkimisväärne.
+    **Tabel 5: Windows Serveri Ametlikud Viitehinnad (2025)**
+
+    | Serveri OS väljaanne | Litsentseeritavate tuumade arv | Ametlik viitehind (USD) | CALide märkus | Mida TCO-sse kanda |
+    | :------------------- | :----------------------------- | :---------------------- | :------------ | :----------------- |
+    | Windows Server 2025 Standard | 16 | $1,176 | CALid eraldi; Microsoft Store'is 16 core + 10 CAL pakett $1,848 | vähemalt tuumalitsents + vajalik CAL maht |
+    | Windows Server 2025 Standard | 32 | $2,352 | CALid eraldi | 2x 16-core viitehind + vajalik CAL maht |
+    | Windows Server 2025 Datacenter | 16 | $6,771 | CALid eraldi | vähemalt tuumalitsents + vajalik CAL maht |
+    | Windows Server 2025 Datacenter | 32 | $13,542 | CALid eraldi | 2x 16-core viitehind + vajalik CAL maht |
+
+    *\*Märkus: siin on kasutatud Microsofti ametlikke 2025. aasta viitehindu USD-s, mitte ligikaudseks teisendatud eurovahemikke. Mahulitsents, CSP ja kohaliku partneri hind võivad sellest erineda.* Serveri OS-i litsentsid on märkimisväärne tarkvarakulu. See tabel aitab mõista tuumalitsentside ja CALide kahekordset kulustruktuuri ilma kolmanda osapoole hinnaskaneeringuid dubleerimata.
+
+* **Varundus- ja Replikatsioonitarkvara (nt Veeam, Commvault - kui ei ole mujal komplekteeritud/kaetud)**: Siin oli varem liiga palju kolmandate osapoolte hinnapakkumisi. Värskendatud kujul tasub toetuda ametlikele hinnalehtedele. `Veeam Data Platform Essentials` ametlik MSRP väikestele keskkondadele on `$89.20` litsentsi kohta aastas; seda müüakse 5-litsentsiliste kimpudena ja kuni 50 workloadi jaoks. `Commvault SaaS Pricing` leht kuvab `Virtual Machine Backup` reale ametliku hinnataseme `$102.49 per VM 10-pack / month`. Need kaks toodet ei ole üks-ühele võrreldavad, kuid annavad nüüd ametlikuma referentsi kui juhuslikud reselleri või Redditi hinnad. Tüüpilised RPO/RTO eesmärgid jäävad endiselt arhitektuurivaliku keskseks sisendiks: 2. taseme rakendustele on tüüpiline `RTO 4 tundi / RPO 2 tundi`, 3. tasemele `RTO 8-24 tundi / RPO 4 tundi`.
 
 ### B. Tegevuskulud (OpEx)
 
@@ -138,9 +145,9 @@ Tegevuskulud on jooksvad kulud, mis on seotud infrastruktuuri haldamise ja hoold
 
 #### Andmekeskuse / Serveriruumi Kulud
 
-* **Ruum (Kolokatsioonikulud 1/3 kuni täisräkile kui proksi)**: Hetzneri 1/3 räkk (14U): €100/kuus + seadistustasu. Täisräkk (42U+): €167-€251/kuus + seadistustasu. Atlexi 42U räkk Euroopas: alates €569/kuus. Andmekeskuse ettevalmistus võib maksta $200-$1000 ruutjala kohta. Isegi kui kolokatsiooni ei kasutata, annavad need arvud aimu serveriruumi füüsilise ruumi, turvalisuse ja keskkonnatingimuste väärtusest.
+* **Ruum (Kolokatsioonikulud 1/3 kuni täisräkile kui proksi)**: Hetzneri ametlik colocation-hinnakiri annab 14U jagatud räki hinnaks `€100/kuus`, `Rack Basic` lahenduse hinnaks `€167.23/kuus` ja `Rack Advanced` lahenduse hinnaks `€251.26/kuus`, millele lisanduvad seadistustasud ja elektrikulu. Need on head proksi-andmed ka siis, kui sa päriselt kolokatsiooni ei kasuta, sest need annavad aimu füüsilise ruumi, turvalisuse ja keskkonnatingimuste väärtusest. Oma serveriruumi puhul võib ruumi ettevalmistus ja tehniline valmidus endiselt tähendada märkimisväärset algkulu.
 
-* **Energiatarve (Serverid, Salvestusruum, Võrguseadmed, Jahutus – PUE mõju)**: Elektrihind Eestis: Väga muutlik, Nord Pooli hetkehind + marginaal (nt 0.0045 €/kWh + kuutasu) + jaotustariif (~0.01-0.017 €/kWh + püsitasu) + taastuvenergiatasu (0.0084 €/kWh 2025. aastal) + aktsiis (0.0021 €/kWh) + käibemaks (22%). Lihtsuse huvides võib tuletada keskmise koguhinna, nt ~0.15-0.20 €/kWh ettevõtetele. Näide serveri energiatarbimisest: 200W pidevalt tarbiv server maksab ~$300 aastas hinnaga $0.168/kWh. IT-seadmed moodustavad 50-60% andmekeskuse energiatarbimisest; jahutus 35-45%. Energiatõhususe näitaja (Power Usage Effectiveness, PUE): Keskmine PUE on ~1.8; tõhusad andmekeskused sihivad <1.2. Google'i PUE on ~1.08-1.11. VKE serveriruumide PUE on tõenäoliselt kõrgem (vähem optimeeritud), võib-olla 1.6-2.0. Energiakulud ja jahutus võivad moodustada 5-10% esialgsest riistvarakulust aastas. Väikeste andmekeskuste puhul võib see ületada $10 000 aastas.
+* **Energiatarve (Serverid, Salvestusruum, Võrguseadmed, Jahutus – PUE mõju)**: Elektrihind Eestis on dünaamiline ja TCO mudelis ei tasu seda lahata ühe vana tariifinäite kaudu. Kasuta oma viimase 12 kuu tegelikku all-in hinda või vähemalt turuandmete ja võrguarve kombinatsioonist saadud keskmist. Konservatiivse rusikareeglina on ettevõtte kogukulu puhul sageli mõistlik testida vähemalt vahemikke `0.15`, `0.20` ja `0.25 €/kWh`. Energiatõhususe näitaja `PUE` on endiselt keskne: üldine keskmine võib olla umbes `1.8`, väga tõhusad andmekeskused sihivad alla `1.2`, samas kui väikesed serveriruumid jäävad sageli pigem `1.6-2.0` vahemikku.
 
     **Tabel 6: Hinnangulised Aastased Energiakulud Näidiskonfiguratsioonidele**
 
@@ -149,13 +156,13 @@ Tegevuskulud on jooksvad kulud, mis on seotud infrastruktuuri haldamise ja hoold
     | "Väike VKE (1-2 serverit, NAS, baasvõrk)"                              | 500 - 800                             | 1.8          | 7884 - 12614                   | 0.18                                     | 1419 - 2271                         |
     | "Keskmine VKE (3-4 serverit, SAN, võrk)"                               | 1500 - 2500                           | 1.6          | 21024 - 35040                  | 0.18                                     | 3784 - 6307                         |
    
-    *\*Märkus: Hinnad on illustratiivsed. PUE väärtus on hinnanguline VKE keskkonnale. Allikad: ``.* Energia on suur korduvkulu. See tabel näitab, kuidas riistvaravalikud, operatiivne tõhusus (PUE) ja kohalikud elektrihinnad kombineeruvad märkimisväärseks kuluks.
+    *\*Märkus: Hinnad on illustratiivsed. PUE väärtus on hinnanguline VKE keskkonnale. Allikate loetelu on artikli lõpus.* Energia on suur korduvkulu. See tabel näitab, kuidas riistvaravalikud, operatiivne tõhusus (PUE) ja kohalikud elektrihinnad kombineeruvad märkimisväärseks kuluks.
 
-* **Jahutus (osana energiakulust või eraldi, kui andmed võimaldavad)**: Tavaliselt arvestatakse PUE arvutustes. Kui jahutussüsteemide spetsiifilised kulud on teada (nt serveriruumi eraldi kliimaseade), võib need eraldi välja tuua. Jahutus võib maksta $200-$400 kuus kohapealsete varundussüsteemide puhul.
+* **Jahutus (osana energiakulust või eraldi, kui andmed võimaldavad)**: Tavaliselt arvestatakse jahutust PUE kaudu. Kui sul on eraldi serveriruumi kliimaseade või muu mõõdetav jahutuskulu, tasub see TCO mudelis siiski omaette reale tõsta, et energiakulu ei muutuks liiga üldiseks hinnanguks.
 
 #### IT Administratsioon ja Haldus
 
-* **Personalikulud (VMware Süsteemiadministraatori palk - Eesti keskmine)**: Keskmine süsteemiadministraatori netokuupalk Eestis: €1129 - €3037. Brutopalga saamiseks tuleb arvestada Eesti tulumaksu, sotsiaalmaksu, töötuskindlustust. Ligikaudne brutopalk: €1800 - €5000 kuus ehk €21 600 - €60 000 aastas. VMware spetsialisti puhul tõenäoliselt selle vahemiku keskpaigast ülespoole. IT-töötajate palgad võivad moodustada 30-50% esialgsest riistvarakulust aastas.
+* **Personalikulud (VMware Süsteemiadministraatori palk - Eesti keskmine)**: Palgad.ee värske palgavahemik `Systems Administrator` rollile Eestis näitab netona ligikaudu `€1,381-€2,266` kuus ning brutona umbes `€1,529-€3,675` kuus. VMware-spetsiifilise oskusega roll võib sellest liikuda ülespoole. TCO vaates on mõistlik kasutada oma ettevõtte tegelikku palgataset, mitte ainult üldist turuvahemikku.
 
 * **Ajaeraldus (Hinnanguline % administraatori ajast VMware haldamiseks VKEdes)**: Uuring näitab, et 30% VMware administraatori ajast kulub hooldusele; keskmiselt 12.3 tundi nädalas VMware lahenduste haldamisele ja paikamisele. See uuring ei ole spetsiifiline VKEdele, kuid annab üldise ettekujutuse. Teine allikas viitab, et virtualiseerimiseelne administraatori/serveri suhe on 1:10 kuni 1:30, virtualiseerimisjärgne võib olla palju kõrgem (nt 1:200), kuid varieerub suuresti. VKEdes võib üks administraator hallata kogu infrastruktuuri, seega on tema koguajast VMware'ile kuluv % asjakohasem. Administraatori aja kvantifitseerimine on ülioluline. Isegi kui VKE-l ei ole pühendunud VMware administraatorit, kulub osa üldise süsteemiadministraatori ajast VMware ülesannetele. Sellel "ajamaksul" on reaalne kulu.
 
@@ -166,17 +173,14 @@ Tegevuskulud on jooksvad kulud, mis on seotud infrastruktuuri haldamise ja hoold
 
 #### Varundus- ja Avariitaasteoperatsioonid
 
-* **Meedia, Väljaspool Asukohta Varundamine, Avariitaaste Testimine**: Varunduslintide/ketaste kulud, turvalised väljaspool asukohta varundusteenused ning ribalaiuse/personali ajakulu regulaarseks avariitaaste testimiseks. Pilvevarundus 10TB jaoks: $2760–$3600 aastas.
-* **Andmete Väljavool (pilvepõhise avariitaaste või varunduskomponentide puhul)**: Kui avariitaasteks/varunduseks kasutatakse pilve, kohalduvad väljavoolutasud. AWS/Azure/GCP: esimene 100GB/kuus sageli tasuta, seejärel ~$0.08-$0.09/GB esialgsetele tasemetele, suuremate mahtude puhul madalamad. See on kriitiline taastestsenaariumide puhul. Pilvekomponendid avariitaaste strateegias võivad taastejuhtumi ajal kaasa tuua muutuvaid, potentsiaalselt kõrgeid väljavoolukulusid, mida tuleb TCO-s arvesse võtta.
+* **Meedia, Väljaspool Asukohta Varundamine, Avariitaaste Testimine**: Varunduslintide/ketaste kulud, turvalised väljaspool asukohta varundusteenused ning ribalaiuse/personali ajakulu regulaarseks avariitaaste testimiseks. Kui varundus läheb objektsalvestusse või pilve, arvuta see oma mahupõhise retention'i, requestide, restore-testide ja väljavoolutasude põhjal, mitte ühe üldise "$/10 TB" reana.
+* **Andmete Väljavool (pilvepõhise avariitaaste või varunduskomponentide puhul)**: Kui avariitaasteks või varunduseks kasutatakse pilve, kohalduvad väljavoolutasud. Suurtel pakkujatel on esimene `100 GB/kuus` sageli tasuta, kuid sealt edasi sõltub hind regioonist, sihtkohast ja mahuastmest. Taastetesti või päris DR juhtumi ajal võib see kulurida kiiresti nähtavaks muutuda, seega tuleb see TCO-sse eraldi sisse kirjutada.
 
 #### Ühenduvus
 
 * **Interneti Ribalaius**: Äriinternetiühenduse maksumus, maht sõltub replikatsioonivajadustest, kasutajate juurdepääsust jne.
 * **VPN Kulud (kui kohaldatav kaughalduseks/avariitaasteks)**:
-    AWS Site-to-Site VPN: ~$0.05/tund ühenduse kohta + andmeedastus.
-    Azure VPN Gateway (VpnGw1): ~$139/kuus + andmeedastus.
-    Google Cloud VPN: ~$0.065/tund tunneli kohta + IPsec liiklus.
-    Paljude "väikeste" tegevuskulude (nagu VPNid, spetsiifilise tarkvara tugi, meedia) summa võib koguneda märkimisväärseks korduvaks kuluks, mis sageli jääb kõrgetasemelistes TCO vaadetes tähelepanuta.
+    AWS-i ametlik hinnaleht sisaldab nii tunnipõhist ühendustasu kui ka andmeedastust; Azure ja GCP puhul sõltub hind valitud gateway või tunnelite SKU-st, tsoonist ja liiklusest. Mõistlik lähenemine on võtta see TCO-sse eraldi reana otse ametlikust pricing kalkulaatorist, mitte eeldada, et "VPN on niikuinii marginaalne". Paljude selliste väikeste tegevuskulude summa võib koguneda märkimisväärseks korduvaks kuluks.
 
 ## 4. VMware Kohapealse Lahenduse TCO Võrdlusanalüüs
 
@@ -195,32 +199,32 @@ Hüpoteetiline VKE töökoormus:
 * **Avariitaaste (DR)**: Baasvõimekus (nt VMware Live Site Recovery või samaväärne)
 * **TCO periood**: 3 aastat
 
-Kohapealse lahenduse TCO arvutatakse jaotises 5 esitatud täiustatud mudeli alusel, kasutades Eesti turule vastavaid hinnanguid (nt elektrihind, tööjõukulud). Pilveteenuste pakkujate (AWS, Azure, GCP) samaväärsete ressursside hinnastamisel keskendutakse Euroopa regioonidele (nt Frankfurt, Iirimaa, Madalmaad).
+Jaotises 5 toodud mudel on detailsem raamistik päris arvutuse tegemiseks. Järgmine võrdlustabel ei ole selle üks-ühele ümberkirjutus, vaid suunatundlik näide, mille eesmärk on näidata kohapealse ja pilvepõhise lähenemise erinevat kulukuju. Päris otsuse jaoks tuleks sama töökoormus läbi arvutada eraldi nii jaotise 5 mudelis kui ka konkreetse pilvepakkuja kalkulaatoris.
 
 * **Amazon Web Services (AWS)**:
-    * Arvutusvõimsus (EC2): m5/m6i/m6a seeria üldotstarbelisteks ja r5/r6i seeria mäluoptimeeritud instantsideks. Näiteks m5.2xlarge (8 vCPU, 32GB RAM) Iirimaal maksab ~$0.4280/tund (~$312/kuus). r5.2xlarge (8 vCPU, 64GB RAM) Iirimaal maksab ~$0.5640/tund (~$412/kuus).
-    * Salvestusruum (EBS, S3): EBS gp3 SSD-d (nt Iirimaal: salvestusruum ~$0.088/GB-kuus; IOPS ~$0.0055/lisatud IOPS-kuus üle 3000; läbilaskevõime ~$0.044/lisatud MB/s-kuus üle 125). S3 Standard (Iirimaa, esimesed 50TB): ~$0.023/GB-kuus.
-    * Võrk: Application Load Balancer ~$0.0225/tund + $0.008/LCU-tund. Site-to-Site VPN ~$0.05/tund + andmeedastus.
-    * Tugi: Business Support miinimum $100/kuus või astmeline % kuludest.
-    * Andmete väljavool: Esimene 100GB/kuus tasuta, seejärel ~$0.09/GB.
+    * Arvutusvõimsus (EC2): üldotstarbelisteks võrdlusteks vaata `m6i/m7i` või `m6a/m7a` klasse, mäluoptimeeritud tööks `r6i/r7i` või `r6a/r7a`. Täpsed hinnad on regioonipõhised ja tuleks võtta ametlikult `EC2 On-Demand Pricing` lehelt või AWS Pricing Calculatorist.
+    * Salvestusruum (EBS, S3): ametlik `EBS gp3` hinnaleht näitab, et lisaks `GB-kuu` reale tuleb eraldi arvestada provisioneeritud `IOPS`-i ja läbilaskevõimet. `S3` puhul sõltub hind storage class'ist ja regioonist.
+    * Võrk: ametlik `Application Load Balancer` hinnaleht kasutab tunnipõhist tasu pluss `LCU`-põhist komponenti; `Site-to-Site VPN` lisab tunnipõhise ühendustasu ja andmeedastuse.
+    * Tugi: AWS ametlik tugihinnakiri algab `Developer Support` puhul `$29/kuus` ja `Business Support` puhul `$100/kuus` või astmelise protsendiga kuludest.
+    * Andmete väljavool: esimene `100 GB/kuus` on tavaliselt tasuta, edasi rakenduvad mahu- ja sihtkohapõhised tasud.
 
 * **Microsoft Azure**:
-    * Arvutusvõimsus (VMs): Dsv5/Dasv5 seeria üldotstarbelisteks ja Esv5/Easv5 seeria mäluoptimeeritud Linuxi VM-ideks. Näiteks D4s v3 (Linux, 4 vCPU, 16GB RAM) Põhja-Euroopas maksab tellimuslepingu alusel ~$175/kuus. E-seeria (nt E4s v3, 4 vCPU, 32GB RAM) alghinnad väikseimatele instantsidele alates ~$58.40/kuus.
-    * Salvestusruum (Managed Disks, Blob Storage): Premium SSD P10 (128GB) Lääne-Euroopas ~$19/kuus. Standard SSD E10 (128GB) Lääne-Euroopas ~$9/kuus. Blob Storage Hot LRS (Lääne-Euroopa, esimesed 50TB) ~$0.0184/GB-kuus.
-    * Võrk: Standard Load Balancer ~$0.025/tund + $0.005/GB andmetöötlus. VPN Gateway VpnGw1 ~$138.70/kuus + andmeedastus.
-    * Tugi: Standard Support $100/kuus.
-    * Andmete väljavool: Esimene 100GB/kuus tasuta, seejärel ~$0.087/GB.
+    * Arvutusvõimsus (VMs): üldotstarbelisteks võrdlusteks vaata `Dv5/Dasv5` klasse, mäluoptimeeritud tööks `Ev5/Easv5`. Täpne hind sõltub regioonist, reservatsioonist, Azure Hybrid Benefit'ist ja VM-i generatsioonist, seega tasub see võtta ametlikust kalkulaatorist.
+    * Salvestusruum (Managed Disks, Blob Storage): ametlikud `Managed Disks` ja `Blob Storage` hinnalehed annavad hinnastuse SKU, redundantsi ja regiooni järgi. VKE TCO jaoks on oluline eristada vähemalt `Premium SSD`, `Standard SSD` ja objektsalvestuse `Hot/Cool` klasse.
+    * Võrk: `Load Balancer` ja `VPN Gateway` on Azure'is eraldi hinnastatud read ning neid ei tohiks liita automaatselt VM hinna sisse.
+    * Tugi: `Standard Support` ametlik hind on endiselt `$100/kuus`.
+    * Andmete väljavool: esimene `100 GB/kuus` on sageli tasuta, edasi sõltub hind regioonist ja mahuastmest.
 
 * **Google Cloud Platform (GCP)**:
-    * Arvutusvõimsus (Compute Engine): E2-standard, N2-standard, N2D-standard üldotstarbelisteks; M1, M2, M3 mäluoptimeeritud. Näiteks e2-standard-2 (2 vCPU, 8GB RAM) europe-west1 ~$0.074/tund (~$54/kuus).
-    * Salvestusruum (Persistent Disks, Cloud Storage): Persistent Disk SSD (europe-west1) ~$0.170/GB-kuus. Cloud Storage Standard (europe-west1, mitme regiooni) ~$0.023/GB-kuus.
-    * Võrk: HTTP(S) Load Balancer (keerukas, vt GCP hinnakirja). HA VPN ~$0.065/tund tunneli kohta + liiklus.
-    * Tugi: Standard Support miinimum $29/kuus või 3% kuutasudest.
-    * Andmete väljavool: Esimene 100GB/kuus tasuta (teatud sihtkohtadesse), seejärel ~$0.08-$0.12/GB.
+    * Arvutusvõimsus (Compute Engine): VKE võrdlustes on kõige mõistlikum alustada `E2`, `N2` ja `N2D` klassidest. Täpne hind sõltub regioonist, machine family'st, committed use allahindlustest ja sellest, kas kasutad spot-instantsse.
+    * Salvestusruum (Persistent Disks, Cloud Storage): ametlik `Cloud Storage` hinnaleht algab `Standard` klassi puhul umbes `$0.02/GiB-kuus`, kuid lõpphind sõltub regioonist ja klassist. Persistent diskid on eraldi hinnastatud ketta tüübi ja mahu järgi.
+    * Võrk: `Cloud VPN` ja muu `Network Connectivity` hinnastamine on GCP-s eraldi hinnaread; eriti taastestsenaariumi puhul arvesta ka võrguliikluse tasudega.
+    * Tugi: `Standard Support` ametlik miinimum on `$29/kuus`; kõrgemad paketid liiguvad protsendipõhiseks.
+    * Andmete väljavool: tasuta künnised ja hinnad sõltuvad sihtkohast ning teenusest, seega kasuta alati ametlikku pricing lehte või kalkulaatorit.
 
-**Tabel 7: 3 Aasta TCO Ülevaade – Kohapealne vs. Tüüpiline Pilve Stsenaarium (Illustratiivne)**
+**Tabel 7: 3 Aasta TCO Ülevaade – Kohapealne vs. Näidispilv (Illustratiivne)**
 
-| Kulukategooria                      | Kohapealne Aasta 1 (€) | Kohapealne Aasta 2 (€) | Kohapealne Aasta 3 (€) | Kohapealne 3-a TCO (€) | Pilv X Aasta 1 (€) | Pilv X Aasta 2 (€) | Pilv X Aasta 3 (€) | Pilv X 3-a TCO (€) |
+| Kulukategooria                      | Kohapealne Aasta 1 (€) | Kohapealne Aasta 2 (€) | Kohapealne Aasta 3 (€) | Kohapealne 3-a TCO (€) | Näidispilv Aasta 1 (€) | Näidispilv Aasta 2 (€) | Näidispilv Aasta 3 (€) | Näidispilv 3-a TCO (€) |
 | :---------------------------------- | :--------------------- | :--------------------- | :--------------------- | :--------------------- | :----------------- | :----------------- | :----------------- | :----------------- |
 | Riistvara CapEx (Amorditud)         | 10 000                 | 10 000                 | 10 000                 | 30 000                 | 0                  | 0                  | 0                  | 0                  |
 | Tarkvara Tellimus                   | 8 000                  | 8 000                  | 8 000                  | 24 000                 | 12 000             | 12 000             | 12 000             | 36 000             |
@@ -230,13 +234,13 @@ Kohapealse lahenduse TCO arvutatakse jaotises 5 esitatud täiustatud mudeli alus
 | Muud Tegevuskulud (Varundus, DR, ühenduvus) | 2 000                  | 2 000                  | 2 000                  | 6 000                  | 3 000              | 3 000              | 3 000              | 9 000              |
 | **KOKKU** | **40 500** | **41 400** | **42 300** | **124 200** | **20 000** | **20 250** | **20 500** | **60 750** |
 
-*Märkus: See tabel on väga illustratiivne ja põhineb hüpoteetilistel väärtustel, et näidata kulustruktuuri erinevusi.* *"Pilv X" esindab tüüpilist avaliku pilve pakkujat. Administraatori tööjõukulu pilves on väiksem, eeldades vähem infrastruktuuri haldamist.* Pilve TCO võib tunduda esialgu madalam tänu puuduvale riistvara esialgsele investeeringule, kuid andmete väljavoolutasud, kõrgema taseme tugiteenused ja premium-klassi salvestusruumi/instantside tüübid võivad kulusid aja jooksul suurendada. Kohapealsel lahendusel on kõrge esialgne kapitalikulu, kuid potentsiaalselt madalamad ja prognoositavamad tegevuskulud, kui seda hästi hallatakse ja riistvara kasutatakse kogu selle eluea jooksul. "Tasuvuspunkt" varieerub oluliselt.
+*Märkus: See tabel on tahtlikult jäme ja illustratiivne, mitte hinnapakkumine.* *"Näidispilv" esindab tüüpilist avaliku pilve pakkujat; reaalses võrdluses tuleks teha eraldi arvutus vähemalt AWS-i, Azure'i ja GCP jaoks.* Administraatori tööjõukulu pilves on väiksem, eeldades vähem infrastruktuuri haldamist. Pilve TCO võib tunduda esialgu madalam tänu puuduvale riistvara esialgsele investeeringule, kuid andmete väljavoolutasud, kõrgema taseme tugiteenused ja premium-klassi salvestusruumi/instantside tüübid võivad kulusid aja jooksul suurendada. Kohapealsel lahendusel on kõrge esialgne kapitalikulu, kuid potentsiaalselt madalamad ja prognoositavamad tegevuskulud, kui seda hästi hallatakse ja riistvara kasutatakse kogu selle eluea jooksul. "Tasuvuspunkt" varieerub oluliselt.
 
 ### Madalama Hinnaklassi Pilve-/Virtualiseerimisteenuse Pakkujate Kaalumine
 
-On oluline märkida, et turul on ka teenusepakkujaid nagu Hetzner ja OVHcloud, kes pakuvad virtuaalmasinaid ja pühendatud servereid märkimisväärselt madalamate hindadega võrreldes suurte hüperkvaliteetsete pilveteenuste pakkujatega. Näiteks Hetzner CX22 (2 vCPU, 4GB RAM, 40GB NVMe) maksab ligikaudu €3.79 kuus. OVHcloud Value VPS (1 vCore, 2-4GB RAM, 40-80GB NVMe) maksab alates ~$5.95 kuus.
+On oluline märkida, et turul on ka teenusepakkujaid nagu Hetzner ja OVHcloud, kes pakuvad virtuaalmasinaid ja pühendatud servereid märkimisväärselt madalamate hindadega võrreldes suurte avaliku pilve pakkujatega. Hetzneri ametlik `CX22` plaan algab `€3.79/kuus`, samas kui OVHcloudi ametlik `VPS` hinnastus algab ligikaudu `$6.46/kuus` sõltuvalt regioonist ja paketist.
 
-Kuigi need valikud võivad tunduda odavamad, kaasnevad nendega sageli vähem hallatud teenuseid, erinevad tugistruktuurid ja need võivad nõuda rohkem ettevõttesisest ekspertiisi haldamiseks ja turvamiseks. See võib potentsiaalselt nihutada osa "pilve" tegevuskuludest tagasi sisemistele tööjõukuludele. Seega, kuigi "odavamad" pilvevalikud eksisteerivad, vajab ka nende TCO hoolikat hindamist. Madalam esialgne hind võib kompenseeruda suurema halduskoormuse või vähemate integreeritud ettevõtlusfunktsioonidega (nt täiustatud turvalisus, DRaaS, põhjalikud haldusportaalid) võrreldes hüperkvaliteetsete pakkujate või hästi struktureeritud VMware kohapealse keskkonnaga.
+Kuigi need valikud võivad tunduda odavamad, kaasnevad nendega sageli vähem hallatud teenuseid, erinevad tugistruktuurid ja need võivad nõuda rohkem ettevõttesisest ekspertiisi haldamiseks ja turvamiseks. See võib potentsiaalselt nihutada osa "pilve" tegevuskuludest tagasi sisemistele tööjõukuludele. Seega, kuigi "odavamad" pilvevalikud eksisteerivad, vajab ka nende TCO hoolikat hindamist. Madalam esialgne hind võib kompenseeruda suurema halduskoormuse või vähemate integreeritud ettevõtlusfunktsioonidega (nt täiustatud turvalisus, DRaaS, põhjalikud haldusportaalid) võrreldes suurte avaliku pilve pakkujate või hästi struktureeritud VMware kohapealse keskkonnaga.
 
 ## 5. Täiustatud TCO Mudel VMware Kohapealsete Lahenduste Jaoks
 
@@ -264,10 +268,10 @@ Järgnev tabelilaadne struktuur kirjeldab mudeli loogikat, tuues välja peamised
 | Võrguseadmed (switchid, tulemüür)              | komplekt                       | 1              | 1500                   | 500              | Nt €1500 komplekt, amordituna 3a peale. Vt Tabel 3.                                                                     |
 | Katkematu Toite Allikas (UPS)                 | tk                             | 1              | 1000                   | 333              | Nt €1000 UPS, amordituna 3a peale. Arvesta ka akuvahetustega elutsükli jooksul (eraldi OpEx reana või siin amortiseerituna). |
 | Füüsiline Turvalisus (algne)                  | komplekt                       | 1              | 1200                   | 400              | Nt ukselukk, 1-2 kaamerat, amordituna 3a peale.                                                                           |
-| VMware vSphere Litsentsid                     | tuum                           | 48             | 46 (Standard, aastane) | 2208             | Nt 3 hosti, 2 CPU/host, 8 tuuma/CPU = 48 tuuma. vSphere Standard @ ~$46/tuum/aasta (3a leping). Vt Tabel 4.                 |
-| Serveri OS Litsentsid (nt Windows Server)     | server/CAL                     | 3 serverit, 50 CAL | 600/server, 35/CAL     | 1183             | Nt 3x€600 (16 tuuma Standard litsents, amordituna 3a) + 50x€35 (CALid, amordituna 3a). Vt Tabel 5.                      |
-| Varundustarkvara Litsents                     | VM                             | 15             | 50 (aastane)           | 750              | Nt 15 VM-i @ ~$50/VM/aastas.                                                                                              |
-| **KAPITALIKULUD KOKKU (AASTANE)** |                                |                |                        | **12541** |                                                                                                                           |
+| VMware vSphere Litsentsid                     | tellimus / tuum                | vastavalt paketile | partner quote          | sisesta          | Nt Standard, Essentials Plus või VVF quote vastavalt litsentseeritud tuumadele. Vt Tabel 4.                              |
+| Serveri OS Litsentsid (nt Windows Server)     | server/CAL                     | 3 serverit, 50 CAL | ametlik viitehind / quote | sisesta       | Nt Windows Server 2025 Standard 16 core + vajalik CAL maht. Vt Tabel 5.                                                   |
+| Varundustarkvara Litsents                     | workload / VM                  | 15             | ametlik hinnaleht / quote | sisesta        | Nt Veeam Essentials või Commvault vastavalt valitud tootele.                                                             |
+| **KAPITALIKULUD KOKKU (AASTANE)** |                                |                |                        | **arvuta** |                                                                                                                           |
 | **B. TEGEVUSKULUD (AASTASED)** |                                |                |                        |                  |                                                                                                                           |
 | Serveriruumi Ruum (kolokatsiooni analoog)     | räkk                           | 1              | 1200 (aastane)         | 1200             | Nt 1/3 räki hind Hetzneris.                                                                                               |
 | Energiatarve                                  | kWh                            | 21024          | 0.18                   | 3784             | Nt 1.5kW riistvara @ PUE 1.6 * 24 * 365 * €0.18/kWh. Vt Tabel 6.                                                          |
@@ -280,7 +284,7 @@ Järgnev tabelilaadne struktuur kirjeldab mudeli loogikat, tuues välja peamised
 | VPN Kulud (vajadusel)                         | kuutasu                        | 12             | 10                     | 120              | Nt baas VPN teenus.                                                                                                       |
 | Koolituskulud (IT personal)                   | aastane                        | 1              | 500                    | 500              | Hinnanguline.                                                                                                             |
 | **TEGEVUSKULUD KOKKU (AASTANE)** |                                |                |                        | **19504** |                                                                                                                           |
-| **KOGUKULU (TCO) AASTAS** |                                |                |                        | **32045** |                                                                                                                           |
+| **KOGUKULU (TCO) AASTAS** |                                |                |                        | **arvuta** |                                                                                                                           |
 
 *Märkus: See tabel on illustratiivse iseloomuga ja näitab mudeli struktuuri. Reaalsed väärtused tuleb asendada organisatsiooni spetsiifiliste andmetega.*
 
@@ -368,94 +372,65 @@ Selle detailse mudeli kasutamine võimaldab IT-juhtidel ja finantsanalüütikute
 
 Lõpetuseks tuleb rõhutada, et kuigi kohapealsed lahendused pakuvad kontrolli ja kohandamisvõimalusi, kaasnevad nendega mitmesugused kulud, mida tuleb hoolsalt jälgida ja hallata. VMware'i üleminek tellimuspõhisele litsentsimisele rõhutab veelgi vajadust tugeva ja pideva TCO analüüsi järele, et tagada IT-investeeringute vastavus nii tehnoloogilistele kui ka rahalistele eesmärkidele.
 
-## Works cited
+## Allikad
 
-1.  CIO Playbook: Broadcom's VMware 2024 Licensing Changes - Redress Compliance, accessed June 4, 2025, https://redresscompliance.com/cio-playbook-broadcoms-vmware-2024-licensing-changes/
-2.  Decoding the new Broadcom VMware vSphere Licensing Packages (for Small Deployments) | Veeam Community Resource Hub, accessed June 4, 2025, https://community.veeam.com/blogs-and-podcasts-57/decoding-the-new-broadcom-vmware-vsphere-licensing-packages-for-small-deployments-6398
-3.  How much does on premise hardware cost? - Interwest Communications, accessed June 4, 2025, https://www.interwestcommunications.com/blog/how-much-does-on-premise-hardware-cost/
-4.  Server Cost Guide: Building and Renting | phoenixNAP KB, accessed June 4, 2025, https://phoenixnap.com/kb/server-cost
-5.  Server Room Power Consumption: Demand and Efficiency - ServerWatch, accessed June 4, 2025, https://www.serverwatch.com/servers/server-room-power-consumption/
-6.  How to Drastically Reduce your Electricity Costs: Print Server vs. ezeep Hub, accessed June 4, 2025, https://www.ezeep.com/electricity-costs-print-server-vs-ezeep-hub/
-7.  Cost of Server Comparison: On-Premises vs Cloud - Parallels, accessed June 4, 2025, https://www.parallels.com/blogs/ras/cost-of-server/
-8.  Salary Estonia, Systems Administrator, Information... - Palgad.ee, accessed June 4, 2025, https://www.palgad.ee/en/salaryinfo/information-technology/systems-administrator
-9.  VMware Private Cloud vs On-Prem VMware: A Complete Cost and ..., accessed June 4, 2025, https://www.theitvortex.com/vmware-private-cloud-vs-on-prem-vmware-a-complete-cost-and-performance-analysis/
-10. CALCULATING THE TCO: CLOUD VS ON PREMISE ... - Criticalcase, accessed June 4, 2025, https://www.criticalcase.com/blog/calculating-the-tco-cloud-vs-on-premise-infrastructure.html
-11. How to Build a Server with your Budget in 2025 - ServerMania, accessed June 4, 2025, https://www.servermania.com/kb/articles/how-to-build-a-server-with-costs-considered
-12. Affordable SAN for SMB - sysadmin - Reddit, accessed June 4, 2025, https://www.reddit.com/r/sysadmin/comments/evf5zt/affordable_san_for_smb/
-13. iSCSI SAN / NAS StorageWindows Storage Server and Linux-based Storage - Broadberry Data Systems, accessed June 4, 2025, https://www.broadberry.com/iscsi-san-nas-storage-servers
-14. How Much Does a NAS Cost in 2025?, accessed June 4, 2025, https://nas.ugreen.com/blogs/buying-guide/how-much-does-a-nas-cost-in-2025
-15. The Best NAS (Network Attached Storage) Devices for 2025 - PCMag, accessed June 4, 2025, https://www.pcmag.com/picks/the-best-nas-network-attached-storage-devices
-16. VMware vSphere Pricing in 2024: Licensing and Overhead Costs - V2 Cloud, accessed June 4, 2025, https://v2cloud.com/blog/vmware-vsphere-licensing-and-costs
-17. On-Premise Cost Calculator - Transact Campus, accessed June 4, 2025, https://transactcampus.com/sales/on-premise-calculator
-18. How Much Does It Cost To Set Up A Small Business Network - Abacus, accessed June 4, 2025, https://goabacus.com/how-much-does-it-cost-to-set-up-a-small-business-network/
-19. How Much Does It Cost To Set Up A Small Business Network, accessed June 4, 2025, https://www.montrealitservices.com/blog/setting-up-an-smb-network/
-20. On-Premises vs Cloud Backup: Cost Comparison | News - Essential Designs, accessed June 4, 2025, https://www.essentialdesigns.net/news/on-premises-vs-cloud-backup-cost-comparison
-21. Access Control System Cost: Pricing Breakdown & Installation Fees, accessed June 4, 2025, https://www.getkisi.com/blog/breakdown-of-access-control-system-installation-costs
-22. How Much Do Remote Video Monitoring Services Cost? - Scout Security, accessed June 4, 2025, https://www.scoutsecurity.com/how-much-do-remote-video-monitoring-services-cost/
-23. Total Cost of Ownership (TCO) Model for Storage - SNIA.org, accessed June 4, 2025, https://www.snia.org/sites/default/files/SSSI/SNIA_TCO_Whitepaper_03-2021.pdf
-24. Total Cost of Ownership (TCO) - Nutanix, accessed June 4, 2025, https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Beam-User-Guide:bea-vm-nutanix-cg-tco-c.html
-25. What Is TCO? Total Cost of Ownership & Hidden Costs - ViewSonic Library, accessed June 4, 2025, https://www.viewsonic.com/library/business/what-is-tco-total-cost-ownership/
-26. Vsphere free license ?! | VMware vSphere - Broadcom Community, accessed June 4, 2025, https://community.broadcom.com/vmware-cloud-foundation/communities/community-home/digestviewer/viewthread?GroupId=5107&MessageKey=726bbbb9-8d9b-4ee4-a478-263219560a56&CommunityKey=c24ac095-2065-4261-a4b5-6de9dade8734
-27. www.vmware.com, accessed June 4, 2025, https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/products/site-recovery-manager/vmware-site-recovery-manager-datasheet.pdf
-28. Purchasing VMware Live Recovery - Broadcom Techdocs, accessed June 4, 2025, https://techdocs.broadcom.com/de/de/vmware-cis/live-recovery/live-recovery/saas/vmware-live-recovery/vmware-live-recovery/set-up-vmware-live-recovery/purchasing-vmware-live-recovery.html
-29. Purchasing VMware Live Recovery - Broadcom Tech Docs, accessed June 4, 2025, https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/live-recovery/saas/vmware-live-recovery/set-up-vmware-live-recovery/purchasing-vmware-live-recovery.html
-30. assets.applytosupply.digitalmarketplace.service.gov.uk, accessed June 4, 2025, https://assets.applytosupply.digitalmarketplace.service.gov.uk/g-cloud-14/documents/92355/554756111604737-pricing-document-2024-05-01-1419.pdf
-31. VMware Live Site Recovery Licensing - Broadcom Tech Docs, accessed June 4, 2025, https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/live-site-recovery/9-0/overview/site-recovery-manager-system-requirements/srm-licensing.html
-32. VMware Live Site Recovery Licensing - Broadcom Techdocs, accessed June 4, 2025, https://techdocs.broadcom.com/kr/ko/vmware-cis/live-recovery/live-recovery/saas/vmware-live-site-recovery-installation-and-configuration/overview/site-recovery-manager-system-requirements/srm-licensing.html
-33. Microsoft Windows Server 2022 Standard 16 Core License | TTT, accessed June 4, 2025, https://www.trustedtechteam.com/products/microsoft-windows-server-2022-standard-16-core
-34. Buy Windows Server 2022 Standard Edition - Microsoft Store, accessed June 4, 2025, https://www.microsoft.com/en-us/d/windows-server-2022-standard-cal/dg7gmgf0d6m5
-35. Buy Windows Server 2022 Standard Edition - Microsoft Store, accessed June 4, 2025, https://www.microsoft.com/en-us/d/windows-server-2022-standard-cal/dg7gmgf0d6m5?activetab=pivot:overviewtab
-36. Microsoft Windows Server 2022 Datacenter 64-bit License (16 Core, OEM, DVD) - Newegg, accessed June 4, 2025, https://www.newegg.com/microsoft-windows-svr-datacntr-2022-64bit-english-1pk-dsp-oei-dvd-16-core/p/N82E16832350880
-37. Microsoft Windows Server 2022 Datacenter - license - 16 cores - P71-09389 - CDW, accessed June 4, 2025, https://www.cdw.com/product/microsoft-windows-server-2022-datacenter-license-16-cores/6729586
-38. Microsoft Windows Server 2022 User CAL | Client Access Licenses | 5 pack | OEM, accessed June 4, 2025, https://www.amazon.com/Windows-Server-2022-User-CAL/dp/B09DVPF4ZH
-39. Microsoft Windows Server 2022 Datacenter - 24 Core - Trusted Tech Team, accessed June 4, 2025, https://www.trustedtechteam.com/products/microsoft-windows-server-2022-datacenter-24-core
-40. Windows Server 2025 Licensing & Pricing | Microsoft, accessed June 4, 2025, https://www.microsoft.com/en-us/windows-server/pricing
-41. Veeam pricing is WILD : r/sysadmin - Reddit, accessed June 4, 2025, https://www.reddit.com/r/sysadmin/comments/1b9bfv4/veeam_pricing_is_wild/
-42. Veeam Universal License (VUL), accessed June 4, 2025, https://www.veeam.com/universal-license.html
-43. Backup Software, accessed June 4, 2025, https://www.cdw.ca/category/software/utilities/backup/?w=FP1
-44. RPO & RTO Best Practices - Docs - OnePro Cloud, accessed June 4, 2025, https://docs.oneprocloud.com/userguide/presales/hyperbdr-rpo-rto-planning-best-practices.html
-45. Colocation data center: Top service by Hetzner, accessed June 4, 2025, https://www.hetzner.com/colocation/
-46. 42U rack rental in Europe - ATLEX.Ru, accessed June 4, 2025, https://www.atlex.ru/rack-in-europe-en/
-47. Estonia - Electricity prices in Europe, accessed June 4, 2025, https://www.dayaheadmarket.eu/estonia
-48. High-Performance Computing Data Center Power Usage Effectiveness - NREL, accessed June 4, 2025, https://www.nrel.gov/computational-science/measuring-efficiency-pue
-49. Power usage effectiveness - Google Data Centers, accessed June 4, 2025, https://datacenters.google/efficiency
-50. The common 2025 Post: How are people getting free servers? : r/homelab - Reddit, accessed June 4, 2025, https://www.reddit.com/r/homelab/comments/1jdcobu/the_common_2025_post_how_are_people_getting_free/
-51. Estonia EE: Electricity Price: HC: Between 5000 & 14999 KwH: incl All Taxes & Levies, accessed June 4, 2025, https://www.ceicdata.com/en/estonia/electricity-price-household-consumers/ee-electricity-price-hc-between-5000--14999-kwh-incl-all-taxes--levies
-52. Survey Reveals the True Costs of VMWare Deployments ..., accessed June 4, 2025, https://www.scalecomputing.com/blog/survey-reveals-the-true-costs-of-vmware-deployments-demonstrates-interest-in-vmware-alternatives
-53. Server to admin ratios | VMware vSphere - Broadcom Community, accessed June 4, 2025, https://community.broadcom.com/vmware-cloud-foundation/discussion/server-to-admin-ratios
-54. Data Egress Cost: How To Take Back Control And Reduce Egress ..., accessed June 4, 2025, https://cast.ai/blog/data-egress-cost-how-to-take-back-control-and-reduce-egress-charges/
-55. Cloud Data Egress Fee Tussle Plays Out with $250k AWS Comp -- AWSInsider, accessed June 4, 2025, https://awsinsider.net/articles/2025/05/09/cloud-data-egress-fee-tussle-plays-out-with-$250k-aws-comp.aspx
-56. AWS VPN | Pricing | Amazon Web Services (AWS), accessed June 4, 2025, https://aws.amazon.com/vpn/pricing/
-57. VPN Gateway Pricing | Microsoft Azure, accessed June 4, 2025, https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/
-58. Network Connectivity pricing - Google Cloud, accessed June 4, 2025, https://cloud.google.com/network-connectivity/pricing
-59. Pricing | Cloud VPN | Google Cloud, accessed June 4, 2025, https://cloud.google.com/network-connectivity/docs/vpn/pricing
-60. m5.2xlarge Pricing and Specs: AWS EC2, accessed June 4, 2025, https://costcalc.cloudoptimo.com/aws-pricing-calculator/ec2/m5.2xlarge
-61. r5.2xlarge Pricing and Specs: AWS EC2, accessed June 4, 2025, https://costcalc.cloudoptimo.com/aws-pricing-calculator/ec2/r5.2xlarge
-62. Managed Disks pricing - Microsoft Azure, accessed June 4, 2025, https://azure.microsoft.com/en-us/pricing/details/managed-disks/
-63. EC2 On-Demand Instance Pricing – Amazon Web Services - AWS, accessed June 4, 2025, https://aws.amazon.com/ec2/pricing/on-demand/
-64. Application and Network Traffic Distribution - Elastic Load Balancing ..., accessed June 4, 2025, https://aws.amazon.com/elasticloadbalancing/pricing/
-65. Pricing for AWS Support Plans | Starting at $29 Per Month | AWS ..., accessed June 4, 2025, https://aws.amazon.com/premiumsupport/pricing/
-66. Azure VM Pricing: What You Don't Know (not yet) - Intercept, accessed June 4, 2025, https://intercept.cloud/en-gb/blogs/azure-vm-pricing
-67. Complete Guide to Azure VM: Pricing Models, Types & More - Umbrella, accessed June 4, 2025, https://umbrellacost.com/blog/azure-vm-pricing/
-68. Pricing—Load Balancer | Microsoft Azure, accessed June 4, 2025, https://azure.microsoft.com/en-us/pricing/details/load-balancer/
-69. Azure Support—Standard | Microsoft Azure, accessed June 4, 2025, https://azure.microsoft.com/en-us/support/plans/standard
-70. How Much Is Microsoft Azure Enterprise Support? - US Cloud, accessed June 4, 2025, https://www.uscloud.com/blog/how-much-is-microsoft-azure-enterprise-support/
-71. Pricing | Compute Engine: Virtual Machines (VMs) - Google Cloud, accessed June 4, 2025, https://cloud.google.com/compute/all-pricing
-72. e2-standard-2 pricing: $48.92 monthly - Economize Cloud, accessed June 4, 2025, https://www.economize.cloud/resources/gcp/pricing/compute-engine/e2-standard-2/
-73. Cloud Storage pricing, accessed June 4, 2025, https://cloud.google.com/storage/pricing
-74. Disk and image pricing | Google Cloud, accessed June 4, 2025, https://cloud.google.com/compute/disks-image-pricing
-75. Standard Support | Google Cloud, accessed June 4, 2025, https://cloud.google.com/support/standard
-76. Google Cloud Customer Care, accessed June 4, 2025, https://cloud.google.com/support
-77. Hetzner | Review, Pricing & Alternatives - GetDeploying, accessed June 4, 2025, https://getdeploying.com/hetzner
-78. Cheap hosted VPS by Hetzner: our cloud hosting services, accessed June 4, 2025, https://www.hetzner.com/cloud
-79. VPS Hosting Germany - Fast & Affordable Virtual Private Servers | OVHcloud Worldwide, accessed June 4, 2025, https://www.ovhcloud.com/en/vps/vps-deutschland/
-80. OVHcloud | Review, Pricing & Alternatives - GetDeploying, accessed June 4, 2025, https://getdeploying.com/ovh
-81. Cloud Provider Pricing Calculator | Canine - An open source alternative to Heroku, accessed June 4, 2025, https://canine.sh/calculator
-82. Object Storage - Hetzner, accessed June 4, 2025, https://www.hetzner.com/storage/object-storage/
-83. Cloud VPS Hosting | Flexible and High-Performance Solutions | OVHcloud Worldwide, accessed June 4, 2025, https://www.ovhcloud.com/en/vps/vps-cloud/
-84. Low-Cost, High-Performance VPS | Starter VPS | OVHcloud Worldwide, accessed June 4, 2025, https://www.ovhcloud.com/en/vps/cheap-vps/
-85. VPS – Your virtual private server in the cloud | OVHcloud Worldwide, accessed June 4, 2025, https://www.ovhcloud.com/en/vps/
-86. Cheap hosted VPS by Hetzner: our cloud hosting services, accessed June 4, 2025, https://www.hetzner.com/cloud/
-87. VMware Licensing in 2025: How Opscompass and House of Brick Manage Risks and Costs, accessed June 4, 2025, https://opscompass.com/vmware-licensing-challenges-2025/
-88. Cloud vs. On-Premises: Choosing the Right Path for Your Data | Gart, accessed June 4, 2025, https://gartsolutions.com/cloud-vs-on-premises/
-89. 90+ Cloud Computing Statistics: A 2025 Market Snapshot - CloudZero, accessed June 4, 2025, https://www.cloudzero.com/blog/cloud-computing-statistics/
+Hinnaviited ja ametlikud viited värskendatud 16. märtsil 2026. Nimekiri on teadlikult kärbitud peamiselt ametlikele hinnalehtedele, tootjadokumentidele ja litsentsijuhistele. Riistvaravahemikud artikli sees on jäetud eelarvestuse orientiiriks, mitte esitletud kui üht ametlikku hinnakirja.
+
+### VMware / Broadcom
+
+- VMware End Of Availability of Perpetual Licensing and SaaS Services: https://blogs.vmware.com/cloud-foundation/2024/01/22/vmware-end-of-availability-of-perpetual-licensing-and-saas-services/
+- VMware vSphere Product Line Comparison: https://www.vmware.com/docs/vmw-datasheet-vsphere-product-line-comparison
+- Broadcom Knowledge Base Article 313548: https://knowledge.broadcom.com/external/article/313548
+- Broadcom Knowledge Base Article 428834: https://knowledge.broadcom.com/external/article/428834
+- VMware Live Site Recovery Licensing: https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/live-site-recovery/9-0/overview/site-recovery-manager-system-requirements/srm-licensing.html
+
+### Microsoft
+
+- Windows Server 2025 Licensing & Pricing: https://www.microsoft.com/en-us/windows-server/pricing
+- Windows Server 2025 Licensing Guidance: https://www.microsoft.com/licensing/guidance/Windows-Server-2025
+- Windows Server 2025 Standard 16 Core + 10 CALs, Microsoft Store: https://www.microsoft.com/en-us/d/windows-server-2025-standard/dg7gmgf0wzrw
+
+### Backup
+
+- Veeam Data Platform Essentials: https://www.veeam.com/products/veeam-data-platform/essentials.html
+- Commvault SaaS Pricing: https://www.commvault.com/saas-pricing
+
+### Hosted / Colocation
+
+- Hetzner Colocation: https://www.hetzner.com/colocation/
+- Hetzner Cloud: https://www.hetzner.com/cloud
+- OVHcloud VPS: https://www.ovhcloud.com/en/vps/
+
+### AWS
+
+- AWS Pricing Calculator: https://aws.amazon.com/aws-cost-management/aws-pricing-calculator/
+- Amazon EC2 On-Demand Pricing: https://aws.amazon.com/ec2/pricing/on-demand/
+- Amazon EBS Pricing: https://aws.amazon.com/ebs/pricing/
+- Amazon S3 Pricing: https://aws.amazon.com/s3/pricing/
+- Elastic Load Balancing Pricing: https://aws.amazon.com/elasticloadbalancing/pricing/
+- AWS Support Pricing: https://aws.amazon.com/premiumsupport/pricing/
+- AWS VPN Pricing: https://aws.amazon.com/vpn/pricing/
+
+### Azure
+
+- Azure Pricing Overview: https://azure.microsoft.com/en-us/pricing/
+- Azure Managed Disks Pricing: https://azure.microsoft.com/en-us/pricing/details/managed-disks/
+- Azure Load Balancer Pricing: https://azure.microsoft.com/en-us/pricing/details/load-balancer/
+- Azure VPN Gateway Pricing: https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/
+- Azure Standard Support: https://azure.microsoft.com/en-us/support/plans/standard
+
+### Google Cloud
+
+- Google Cloud Pricing Calculator: https://cloud.google.com/products/calculator
+- Compute Engine Pricing: https://cloud.google.com/compute/all-pricing
+- Cloud Storage Pricing: https://cloud.google.com/storage/pricing
+- Network Connectivity Pricing: https://cloud.google.com/network-connectivity/pricing
+- Cloud VPN Pricing: https://cloud.google.com/network-connectivity/docs/vpn/pricing
+- Google Cloud Support: https://cloud.google.com/support
+
+### Taust
+
+- Palgad.ee, Systems Administrator salary in Estonia: https://www.palgad.ee/en/salaryinfo/information-technology/systems-administrator
+- Elering Price List and Standard Terms and Conditions: https://elering.ee/en/price-list-and-standard-terms-and-conditions
+- NREL: Measuring Efficiency with PUE: https://www.nrel.gov/computational-science/measuring-efficiency-pue
+- Google Data Centers Efficiency: https://datacenters.google/efficiency
