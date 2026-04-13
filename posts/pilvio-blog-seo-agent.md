@@ -1,5 +1,5 @@
 ---
-title: "Kuidas ma ehitasin SEO agendi, mis saadab mulle iga esmaspäev hommikul raporti"
+title: "Kuidas ma ehitasin SEO agendi, mis saadab mulle iga esmaspäeva hommikul raporti"
 author: "Kaur Kiisler"
 publishedAt: "13. aprill 2026"
 category: "AI"
@@ -10,21 +10,21 @@ imageUrl: "/media/seo-agent.png"
 slug: "kuidas-ehitasin-seo-agendi"
 ---
 
-# Kuidas ma ehitasin SEO agendi, mis saadab mulle iga esmaspäev hommikul raporti
+# Kuidas ma ehitasin SEO agendi, mis saadab mulle iga esmaspäeva hommikul raporti
 
 *Kaur Kiisler, Pilvio asutaja*
 
 ---
 
-Mul oli probleem. Ma teadsin, et Pilvio ei ole Eestis piisavalt nähtav. Aga iga kord kui tahtsin olukorda hinnata, pidin avama Google Analytics 4, siis Search Console'i, siis võrdlema nädalaid, siis vaatama eraldi blogi numbreid. Tund aega hiljem olin andmetes kadunud ja otsuseid polnud ikkagi teinud.
+Mul oli probleem. Ma teadsin, et Pilvio ei ole Eestis piisavalt nähtav. Aga iga kord kui tahtsin olukorda hinnata, pidin avama Google Analytics 4, siis Search Console'i, siis võrdlema andmeid nädalate lõikes, siis vaatama eraldi blogi numbreid. Tund aega hiljem olin andmetes kadunud ja otsuseid polnud ikkagi teinud.
 
-Nii et ehitasin agendi, mis teeb selle mu eest ära.
+Nii et ehitasin agendi, mis teeb selle töö mu eest ära.
 
 ---
 
 ## Mida agent teeb
 
-Iga esmaspäeva hommikul kell 7 saan emaili. 30 sekundiga on pilt selge:
+Iga esmaspäeva hommikul kell 9 saan emaili. 30 sekundiga on pilt selge:
 
 - Mitu inimest käis pilvio.com-is ja blogis
 - Mis märksõnad tõusevad, mis langevad
@@ -34,7 +34,7 @@ Iga esmaspäeva hommikul kell 7 saan emaili. 30 sekundiga on pilt selge:
 - Mis eelmistest soovitustest on tehtud ja mis mitte
 - 2–3 konkreetset soovitust, mida sel nädalal teha
 
-Varem kulus selleks tund GA4-s ja Search Console'is. Nüüd 30 sekundit emaili lugedes hommikukohvi kõrval.
+Varem kulus selleks tund GA4-s ja Search Console'is. Nüüd 30 sekundit emaili lugedes hommikukohvi kõrvale.
 
 ---
 
@@ -52,9 +52,9 @@ Küsimus on aus. Miks ehitada ise, kui tööriistad on olemas?
 | Resend (email saatmine) | Tasuta |
 | **Kokku** | **~8–11€/kuu** |
 
-10x odavam. Ja annab mulle täpselt seda, mida vajan — mitte 50 dashboard'i, millest 48 ei kasuta.
+10x odavam. Ja annab mulle täpselt seda, mida vajan — mitte 50 dashboard'i, millest 48 ma ei kasuta.
 
-**Kontekst.** Semrush ei tea, et Pilvio on Eesti ainus 100% kodumaises omanduses pilveteenus. Ta ei tea, kes on mu konkurendid. Ta ei tea, et mu blogi artiklid on eestikeelsed ja LinkedIn on mu peamine liiklusallikas. Claude API teab — sest ma ütlen talle süsteemi promptis.
+**Kontekst.** Semrush ei tea, et Pilvio on Eesti ainus 100% kodumaises omanduses täisautomaatne pilveteenus. Ta ei tea, kes on mu konkurendid. Ta ei tea, et mu blogi artiklid on eestikeelsed ja LinkedIn on mu peamine liiklusallikas. Claude API teab — sest ma ütlen talle süsteemi promptis.
 
 **Andmesuveräänsus.** Mu andmed ei lähe kolmanda osapoole SaaS-i. Need liiguvad Google API-st mu Pilvio VM-i, seal analüüsitakse ja raport tuleb emailiga. Kogu ahel on mu kontrolli all.
 
@@ -66,7 +66,7 @@ Agent on üllataval kombel lihtne:
 
 ```
 GSC API (2 saiti)  ───┐
-                        ├──  SQLite  ──  Trendianalüüs  ──  Claude API  ──  Email
+                      ├──  SQLite  ──  Trendianalüüs  ──  Claude API  ──  Email
 GA4 API (2 saiti)  ───┘
 ```
 
