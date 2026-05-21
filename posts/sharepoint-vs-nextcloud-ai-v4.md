@@ -88,7 +88,7 @@ S3 puhul tuleb teha oluline eristus.
 
 Teisisõnu: Nextcloud + S3 ei ole otsetee turvalisusest mööda. See on võimalus ehitada turvaline andmevoog nii, et failid, indeksid, logid ja mudelid saavad jääda sinu kontrollitavasse infrastruktuuri.
 
-## Suveräänne AI-töövool
+## Suveräänne AI-töövoog
 
 Tootmiskõlbulik AI-teadmistekiht ei tohiks anda mudelile piiramatut ligipääsu failisüsteemile. Õigem muster on kitsaste tööriistadega ligipääs:
 
