@@ -10,6 +10,11 @@
 name: Sync Blog Content to S3
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'posts/**'
+      - 'media/**'
   workflow_dispatch:
 
 jobs:
