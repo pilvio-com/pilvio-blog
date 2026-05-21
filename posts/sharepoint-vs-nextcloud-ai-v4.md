@@ -4,7 +4,7 @@ author: "Kaur Kiisler"
 publishedAt: "21. mai 2026"
 category: "AI"
 tags: ["AI", "Nextcloud", "SharePoint", "andmesuveräänsus", "RAG", "MCP", "S3", "dokumendihaldus"]
-featured: false
+featured: true
 excerpt: "SharePoint ja Nextcloud suudavad mõlemad dokumente hoida. Erinevus tuleb sisse selles, kui palju kontrolli jääb sinu kätte siis, kui tahad nende peale ehitada tootjast sõltumatut AI-kihti."
 imageUrl: "/media/sharepoint-vs-nextcloud.png"
 slug: "sharepoint-vs-nextcloud-ai"
